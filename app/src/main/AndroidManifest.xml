@@ -11,9 +11,18 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.LotteCinemaAOS"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".presentation.selection.CinemaSelectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.home.CinemaHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.detail.MovieDetailActivity"
+            android:exported="false" />
         <activity
             android:name=".presentation.main.MainActivity"
             android:exported="true"
