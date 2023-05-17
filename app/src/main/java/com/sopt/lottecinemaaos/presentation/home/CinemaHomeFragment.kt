@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.sopt.lottecinemaaos.R
 import com.sopt.lottecinemaaos.databinding.FragmentCinemaHomeBinding
 import com.sopt.lottecinemaaos.util.base.BindingFragment
@@ -12,6 +13,7 @@ class CinemaHomeFragment : BindingFragment<FragmentCinemaHomeBinding>(R.layout.f
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setViewHolder()
+        setMovieChartRV()
     }
 
     private fun setViewHolder() {
@@ -26,6 +28,13 @@ class CinemaHomeFragment : BindingFragment<FragmentCinemaHomeBinding>(R.layout.f
                 )
             }
             wormDotsIndicator.attachTo(layoutTopViewpager)
+        }
+    }
+
+    private fun setMovieChartRV(){
+        with(binding){
+            rvMovieChart.adapter = CinemaHomeMovieChartRVAdapter(requireContext())
+            rvMovieChart.layoutManager= LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
         }
     }
 }

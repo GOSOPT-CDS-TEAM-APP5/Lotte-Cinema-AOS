@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="111dp"
-    android:layout_height="238dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="12dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <LinearLayout
@@ -32,6 +33,7 @@
                 android:text="가디언즈 오브 갤…"
                 android:textColor="@color/black"
                 android:textSize="12sp"
+                android:font="@font/noto_sans_medium"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,17 +59,19 @@
                 android:text="예매율"
                 android:textColor="@color/red_DB291D"
                 android:textSize="10sp"
+                android:font="@font/noto_sans_regular"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_percent"
+                android:id="@+id/tv_reservation_rate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
                 android:text="37.2"
                 android:textColor="@color/g_200"
                 android:textSize="10sp"
+                android:font="@font/noto_sans_medium"
                 android:stateListAnimator="@null"
                 app:layout_constraintStart_toEndOf="@id/tv_people"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -80,7 +84,8 @@
                 android:text="%"
                 android:textColor="@color/g_200"
                 android:textSize="10sp"
-                app:layout_constraintStart_toEndOf="@id/tv_percent"
+                android:font="@font/noto_sans_regular"
+                app:layout_constraintStart_toEndOf="@id/tv_reservation_rate"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -92,13 +97,14 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/tv_rate"
+                    android:id="@+id/tv_grade"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:text="9.6"
                     android:textColor="@color/g_200"
                     android:textSize="10sp"
+                    android:font="@font/noto_sans_regular"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -107,9 +113,9 @@
                     android:layout_height="9dp"
                     android:layout_marginEnd="2dp"
                     android:src="@drawable/ic_star"
-                    app:layout_constraintBottom_toBottomOf="@id/tv_rate"
-                    app:layout_constraintEnd_toStartOf="@id/tv_rate"
-                    app:layout_constraintTop_toTopOf="@id/tv_rate" />
+                    app:layout_constraintBottom_toBottomOf="@id/tv_grade"
+                    app:layout_constraintEnd_toStartOf="@id/tv_grade"
+                    app:layout_constraintTop_toTopOf="@id/tv_grade" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -121,10 +127,11 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/tv_day"
+                    android:id="@+id/tv_d_day"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="D-"
+                    android:font="@font/noto_sans_regular"
                     android:textColor="@color/g_200"
                     android:textSize="10sp"
                     app:layout_constraintEnd_toStartOf="@id/tv_day_num"
@@ -136,10 +143,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="17dp"
                     android:text="9"
+                    android:font="@font/noto_sans_regular"
                     android:textColor="@color/g_200"
                     android:textSize="10sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/tv_day"
+                    app:layout_constraintStart_toEndOf="@id/tv_d_day"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
