@@ -1,11 +1,12 @@
 package com.sopt.lottecinemaaos.presentation.home
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sopt.lottecinemaaos.databinding.ItemHomeViewpagerBinding
 
-class CinemaHomeVPAdapter(_itemList: List<Int> = listOf()) :
+class CinemaHomeVPAdapter( _itemList: List<Int> = listOf()) :
     RecyclerView.Adapter<CinemaHomeVPAdapter.CinemaHomeMovieViewHolder>() {
 
     private var itemList: List<Int> = _itemList
@@ -22,7 +23,7 @@ class CinemaHomeVPAdapter(_itemList: List<Int> = listOf()) :
     }
 
     override fun onBindViewHolder(
-        holder: CinemaHomeVPAdapter.CinemaHomeMovieViewHolder,
+        holder: CinemaHomeMovieViewHolder,
         position: Int
     ) {
         holder.bind(itemList[position])

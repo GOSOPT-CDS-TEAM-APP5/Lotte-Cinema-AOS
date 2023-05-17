@@ -10,5 +10,5 @@
         android:scaleType="fitXY"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:src="@drawable/img_home_viewpager2"/>
+        android:src="@drawable/img_home_viewpager1"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
