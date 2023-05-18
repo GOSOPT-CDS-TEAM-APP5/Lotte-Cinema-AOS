@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">lotteCinemaAOS</string>
+    <string name="tv_selection_title">영화관 선택</string>
 </resources>
