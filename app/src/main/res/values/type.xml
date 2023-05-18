@@ -49,7 +49,6 @@
         <item name="fontFamily">@font/font_noto_sans_regular</item>
         <item name="android:textSize">12sp</item>
         <item name="android:lineHeight">15dp</item>
-        <item name="android:textColor">@color/g_600</item>
     </style>
 
     <style name="Caption2" parent="TextAppearance.LotteCinema">
