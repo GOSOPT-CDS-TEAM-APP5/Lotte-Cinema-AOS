@@ -16,22 +16,22 @@
         tools:targetApi="31">
         <activity
             android:name=".presentation.selection.CinemaSelectionActivity"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".presentation.detail.MovieDetailActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.main.MainActivity"
-            android:exported="true">
-            <intent-filter>
+            android:exported="false"
+            android:screenOrientation="portrait">
 
-
-
-
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity> <!--dd-->
+        </activity>
     </application>
 
 </manifest>
