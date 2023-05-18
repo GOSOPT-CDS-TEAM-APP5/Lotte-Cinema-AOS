@@ -26,20 +26,20 @@
                 android:id="@+id/btn_selection_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:src="@drawable/ic_chevron_left_black"
-                android:layout_marginStart="18dp"
+                android:layout_gravity="start"
                 android:layout_marginVertical="17dp"
+                android:layout_marginStart="18dp"
+                android:background="@null"
 
-                android:layout_gravity="start" />
+                android:src="@drawable/ic_chevron_left_black" />
 
             <TextView
                 android:id="@+id/tv_selection_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="117dp"
                 android:text="@string/tv_selection_title"
-                android:textAppearance="@style/Title1"
-                android:layout_marginStart="117dp"/>
+                android:textAppearance="@style/Title1" />
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -48,10 +48,9 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:background="@drawable/bg_selection_top_banner"
-            app:layout_constraintTop_toBottomOf="@id/tb_selection"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            >
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tb_selection">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -66,9 +65,31 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcv_selection_region"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/btn_selection_complete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_selection_banner"
+            app:layout_constraintVertical_bias="0"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_selection_region" />
 
-
-
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_selection_complete"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="선택 완료"
+            android:background="@drawable/shape_g200_fill_rect"
+            android:textAppearance="@style/SubHead"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="128dp"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
