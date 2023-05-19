@@ -11,7 +11,11 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         super.onCreate(savedInstanceState)
         clickFloatingBtn()
     }
+    private fun setEventFragment(){
+        with(binding){
 
+        }
+    }
     private fun clickFloatingBtn() {
         with(binding) {
             btnReserve.setOnClickListener {
