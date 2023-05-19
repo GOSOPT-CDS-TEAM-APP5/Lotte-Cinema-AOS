@@ -107,7 +107,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:font="@font/noto_sans_regular"
-                    android:text="무비차트"
+                    android:text="@string/home_movie_chart"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -120,7 +120,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:font="@font/noto_sans_regular"
-                    android:text="무비싸다구"
+                    android:text="@string/home_movie_cheap"
                     android:textColor="@color/g_400"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -133,7 +133,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:font="@font/noto_sans_regular"
-                    android:text="롯시플"
+                    android:text="@string/home_lotte_cinema"
                     android:textColor="@color/g_400"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -146,7 +146,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:font="@font/noto_sans_regular"
-                    android:text="롯시무비"
+                    android:text="@string/home_lotte_movie"
                     android:textColor="@color/g_400"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -167,7 +167,7 @@
                     android:layout_height="24dp"
                     android:background="@drawable/shape_red_fill_16_rect"
                     android:font="@font/noto_sans_regular"
-                    android:text="예매순"
+                    android:text="@string/home_reservation_rate"
                     android:textColor="@color/white"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -182,7 +182,7 @@
                     android:layout_marginStart="4dp"
                     android:background="@drawable/shape_g200_fill_16_rect"
                     android:font="@font/noto_sans_regular"
-                    android:text="현재상영작"
+                    android:text="@string/home_current_screening"
                     android:textColor="@color/white"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -197,7 +197,7 @@
                     android:layout_marginStart="4dp"
                     android:background="@drawable/shape_g200_fill_16_rect"
                     android:font="@font/noto_sans_regular"
-                    android:text="상영예정작"
+                    android:text="@string/home_upcoming_film"
                     android:textColor="@color/white"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -212,7 +212,7 @@
                     android:layout_marginStart="4dp"
                     android:background="@drawable/shape_g200_fill_16_rect"
                     android:font="@font/noto_sans_regular"
-                    android:text="아르떼"
+                    android:text="@string/home_arte"
                     android:textColor="@color/white"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -250,7 +250,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:font="@font/noto_sans_medium"
-                    android:text="이벤트"
+                    android:text="@string/home_event"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -263,7 +263,6 @@
                     android:layout_height="9dp"
                     android:layout_marginEnd="16dp"
                     android:src="@drawable/ic_arrow_right"
-                    android:text="이벤트"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -273,7 +272,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:font="@font/noto_sans_regular"
-                    android:text="전체보기"
+                    android:text="@string/home_view_all"
                     android:textColor="@color/g_400"
                     android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -310,7 +309,7 @@
                     android:textColor="@drawable/sel_home_event_text"
                     android:button="@null"
                     android:textAlignment="center"
-                    android:text="추천"
+                    android:text="@string/home_recommend"
                     android:checked="true"
                     tools:ignore="TouchTargetSizeCheck" />
 
@@ -323,7 +322,7 @@
                     android:textColor="@drawable/sel_home_event_text"
                     android:button="@null"
                     android:textAlignment="center"
-                    android:text="영화"
+                    android:text="@string/home_movie"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <RadioButton
@@ -335,7 +334,7 @@
                     android:textColor="@drawable/sel_home_event_text"
                     android:button="@null"
                     android:textAlignment="center"
-                    android:text="제휴"
+                    android:text="@string/home_alliance"
                     tools:ignore="TouchTargetSizeCheck" />
             </RadioGroup>
 
@@ -347,7 +346,7 @@
                 android:layout_marginTop="36dp"
                 android:layout_marginBottom="16dp"
                 android:font="@font/noto_sans_medium"
-                android:text="무비피드"
+                android:text="@string/home_movie_feed"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -400,7 +399,7 @@
                     android:layout_marginTop="18dp"
                     android:font="@font/noto_sans_medium"
                     app:layout_constraintTop_toBottomOf="@id/iv_movie_feed2"
-                    android:text="#롯데시네마"
+                    android:text="@string/hoem_lotte_cinema_hashtag"
                     android:textColor="@color/black"
                     android:textSize="12sp" />
                 <TextView
@@ -412,7 +411,7 @@
                     android:font="@font/noto_sans_medium"
                     app:layout_constraintTop_toTopOf="@id/tv_movie_feed_lotte"
                     app:layout_constraintBottom_toBottomOf="@id/tv_movie_feed_lotte"
-                    android:text="Pick!"
+                    android:text="@string/home_pick"
                     android:textColor="@color/red_DB291D"
                     android:textSize="12sp" />
                 <androidx.recyclerview.widget.RecyclerView
@@ -439,7 +438,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:font="@font/noto_sans_regular"
-                    android:text="스폐셜관"
+                    android:text="@string/home_special_cinema"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
                 <ImageView
@@ -448,7 +447,7 @@
                     android:layout_height="9dp"
                     android:layout_marginEnd="16dp"
                     android:src="@drawable/ic_arrow_right"
-                    android:text="이벤트"
+                    android:text="@string/home_event"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -458,7 +457,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:font="@font/noto_sans_regular"
-                    android:text="전체보기"
+                    android:text="@string/home_view_all"
                     android:textColor="@color/g_400"
                     android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -491,7 +490,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:font="@font/noto_sans_medium"
-                    android:text="공지사항"
+                    android:text="@string/home_notice"
                     android:textColor="@color/black"
                     android:textSize="10sp" />
                 <View
@@ -512,7 +511,7 @@
                     android:layout_marginStart="13dp"
                     app:layout_constraintStart_toEndOf="@id/view_notice"
                     android:font="@font/noto_sans_medium"
-                    android:text="롯데시네마 월드타워관 이용 안내"
+                    android:text="@string/home_lotte_world_tower_notice"
                     android:textColor="@color/black"
                     android:textSize="10sp" />
 
@@ -522,7 +521,6 @@
                     android:layout_height="9dp"
                     android:layout_marginEnd="16dp"
                     android:src="@drawable/ic_arrow_right"
-                    android:text="이벤트"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -532,7 +530,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:font="@font/noto_sans_regular"
-                    android:text="전체보기"
+                    android:text="@string/home_view_all"
                     android:textColor="@color/g_400"
                     android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -562,7 +560,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:font="@font/noto_sans_medium"
-                    android:text="이용약관"
+                    android:text="@string/home_terms_of_use"
                     android:textColor="@color/black"
                     android:textSize="10sp" />
                 <View
@@ -584,7 +582,7 @@
                     app:layout_constraintStart_toEndOf="@id/view_bottom_bar"
                     app:layout_constraintEnd_toStartOf="@id/view_bottom_bar2"
                     android:font="@font/noto_sans_medium"
-                    android:text="개인정보처리방침"
+                    android:text="@string/home_privacy_policy"
                     android:textColor="@color/black"
                     android:textSize="10sp" />
                 <View
@@ -606,7 +604,7 @@
                     app:layout_constraintStart_toEndOf="@id/view_bottom_bar2"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:font="@font/noto_sans_medium"
-                    android:text="고객센터"
+                    android:text="@string/home_customer_service_center"
                     android:textColor="@color/black"
                     android:textSize="10sp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
