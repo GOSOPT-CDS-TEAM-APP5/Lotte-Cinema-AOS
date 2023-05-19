@@ -10,7 +10,7 @@ import com.sopt.lottecinemaaos.data.entity.Region
 import com.sopt.lottecinemaaos.databinding.ItemSelectionRegionBinding
 import com.sopt.lottecinemaaos.util.ItemDiffCallback
 
-class CinemaRegionSelectionListAdapter :
+class CinemaRegionSelectionListAdapter(private val viewmodel: CinemaSelectionViewModel) :
     ListAdapter<Region, CinemaRegionSelectionListAdapter.RegionViewHolder>(
         ItemDiffCallback<Region>(
             onContentsTheSame = { old, new -> old == new },
@@ -40,6 +40,7 @@ class CinemaRegionSelectionListAdapter :
             binding.clItemRegion.setOnClickListener {
                 isItemSelected = !isItemSelected
                 selectedItemPosition = absoluteAdapterPosition
+                viewmodel.updateRegionItemSelected(isItemSelected)
                 Log.d("recyclerView", selectedItemPosition.toString())
                 if (isItemSelected) {
                     binding.clItemRegion.setBackgroundColor(Color.parseColor("#EBEBEB"))

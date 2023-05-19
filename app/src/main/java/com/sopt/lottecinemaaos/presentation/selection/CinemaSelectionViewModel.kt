@@ -1,10 +1,16 @@
 package com.sopt.lottecinemaaos.presentation.selection
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.sopt.lottecinemaaos.data.entity.Cinema
 import com.sopt.lottecinemaaos.data.entity.Region
 
 class CinemaSelectionViewModel : ViewModel() {
+    private val _isRegionItemSelected = MutableLiveData<Boolean>()
+    val isRegionItemSelected: LiveData<Boolean>
+        get() = _isRegionItemSelected
+
     val regionList: List<Region> =
         listOf(
             Region(1, "MY 영화관", 0),
@@ -43,4 +49,8 @@ class CinemaSelectionViewModel : ViewModel() {
             Cinema(19, "19")
 
         )
+
+    fun updateRegionItemSelected(isSelected: Boolean) {
+        _isRegionItemSelected.value = isSelected
+    }
 }
