@@ -103,7 +103,7 @@
             android:id="@+id/btn_selection_complete"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:background="@drawable/shape_g200_fill_rect"
+            android:background="@drawable/sel_selection_button"
             android:text="@string/btn_selection_complete"
             android:textAppearance="@style/SubHead"
             android:textColor="@color/white"
