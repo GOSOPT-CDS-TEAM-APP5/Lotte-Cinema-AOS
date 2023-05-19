@@ -1,6 +1,7 @@
 package com.sopt.lottecinemaaos.presentation.selection
 
 import androidx.lifecycle.ViewModel
+import com.sopt.lottecinemaaos.data.entity.Cinema
 import com.sopt.lottecinemaaos.data.entity.Region
 
 class CinemaSelectionViewModel : ViewModel() {
@@ -16,6 +17,30 @@ class CinemaSelectionViewModel : ViewModel() {
             Region(8, "경북", 7),
             Region(9, "대구", 8),
             Region(10, "경남", 9)
+
+        )
+
+    val cinemaList: List<Cinema> =
+        listOf(
+            Cinema(1, "1"),
+            Cinema(2, "2"),
+            Cinema(3, "3"),
+            Cinema(4, "4"),
+            Cinema(5, "5"),
+            Cinema(6, "6"),
+            Cinema(7, "7"),
+            Cinema(8, "8"),
+            Cinema(9, "9"),
+            Cinema(10, "10"),
+            Cinema(11, "11"),
+            Cinema(12, "12"),
+            Cinema(13, "13"),
+            Cinema(14, "14"),
+            Cinema(15, "15"),
+            Cinema(16, "16"),
+            Cinema(17, "17"),
+            Cinema(18, "18"),
+            Cinema(19, "19")
 
         )
 }
