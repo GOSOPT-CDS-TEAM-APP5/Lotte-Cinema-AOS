@@ -12,13 +12,21 @@ class CinemaSelectionActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val regionAdapter = CinemaRegionSelectionListAdapter()
-        initAdapter(regionAdapter)
+        val cinemaAdapter = CinemaSelectionListAdapter()
+        initAdapter(regionAdapter, cinemaAdapter)
     }
 
-    private fun initAdapter(regionAdapter: CinemaRegionSelectionListAdapter) {
+    private fun initAdapter(
+        regionAdapter: CinemaRegionSelectionListAdapter,
+        cinemaAdapter: CinemaSelectionListAdapter
+    ) {
         regionAdapter.submitList(viewModel.regionList)
+        cinemaAdapter.submitList(viewModel.cinemaList)
         binding.rcvSelectionRegion.also {
             it.adapter = regionAdapter
+        }
+        binding.rcvSelectionCinema.also {
+            it.adapter = cinemaAdapter
         }
     }
 }

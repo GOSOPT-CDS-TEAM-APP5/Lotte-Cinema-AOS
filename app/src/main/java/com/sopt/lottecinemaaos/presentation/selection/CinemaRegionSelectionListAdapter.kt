@@ -1,6 +1,7 @@
 package com.sopt.lottecinemaaos.presentation.selection
 
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
@@ -16,6 +17,7 @@ class CinemaRegionSelectionListAdapter :
             onItemsTheSame = { old, new -> old == new }
         )
     ) {
+    private var selectedItemPosition = RecyclerView.NO_POSITION
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RegionViewHolder {
         val binding =
@@ -24,13 +26,10 @@ class CinemaRegionSelectionListAdapter :
     }
 
     override fun onBindViewHolder(holder: RegionViewHolder, position: Int) {
-        holder.onBind(
-            getItem(position) as Region
-
-        )
+        holder.onBind(getItem(position))
     }
 
-    class RegionViewHolder(private val binding: ItemSelectionRegionBinding) :
+    inner class RegionViewHolder(private val binding: ItemSelectionRegionBinding) :
         RecyclerView.ViewHolder(binding.root) {
         private var isItemSelected = false
 
@@ -40,6 +39,8 @@ class CinemaRegionSelectionListAdapter :
 
             binding.clItemRegion.setOnClickListener {
                 isItemSelected = !isItemSelected
+                selectedItemPosition = absoluteAdapterPosition
+                Log.d("recyclerView", selectedItemPosition.toString())
                 if (isItemSelected) {
                     binding.clItemRegion.setBackgroundColor(Color.parseColor("#EBEBEB"))
                 } else {
