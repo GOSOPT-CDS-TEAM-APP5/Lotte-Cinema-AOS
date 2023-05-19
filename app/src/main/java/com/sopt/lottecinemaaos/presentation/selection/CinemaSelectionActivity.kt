@@ -1,6 +1,7 @@
 package com.sopt.lottecinemaaos.presentation.selection
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import com.sopt.lottecinemaaos.R
 import com.sopt.lottecinemaaos.databinding.ActivityCinemaSelectionBinding
@@ -11,9 +12,10 @@ class CinemaSelectionActivity :
     private val viewModel by viewModels<CinemaSelectionViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val regionAdapter = CinemaRegionSelectionListAdapter()
+        val regionAdapter = CinemaRegionSelectionListAdapter(viewModel)
         val cinemaAdapter = CinemaSelectionListAdapter()
         initAdapter(regionAdapter, cinemaAdapter)
+        observeRegionItemSelected()
     }
 
     private fun initAdapter(
@@ -27,6 +29,16 @@ class CinemaSelectionActivity :
         }
         binding.rcvSelectionCinema.also {
             it.adapter = cinemaAdapter
+        }
+    }
+
+    private fun observeRegionItemSelected() {
+        viewModel.isRegionItemSelected.observe(this) {
+            if (viewModel.isRegionItemSelected.value == true) {
+                binding.rcvSelectionCinema.visibility = View.VISIBLE
+            } else {
+                binding.rcvSelectionCinema.visibility = View.INVISIBLE
+            }
         }
     }
 }
