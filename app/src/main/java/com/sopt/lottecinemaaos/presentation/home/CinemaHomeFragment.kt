@@ -12,14 +12,14 @@ class CinemaHomeFragment :
     BindingFragment<FragmentCinemaHomeBinding>(R.layout.fragment_cinema_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setViewHolder()
+        setViewPager()
         setMovieChartRV()
         setMovieFeedRV()
         setEventFragment()
         setEventBtn()
     }
 
-    private fun setViewHolder() {
+    private fun setViewPager() {
         with(binding) {
             layoutTopViewpager.adapter = CinemaHomeVPAdapter().apply {
                 setItemList(
