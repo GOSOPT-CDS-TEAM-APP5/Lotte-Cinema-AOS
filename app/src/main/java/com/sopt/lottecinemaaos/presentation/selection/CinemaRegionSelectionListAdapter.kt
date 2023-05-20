@@ -34,18 +34,19 @@ class CinemaRegionSelectionListAdapter(private val viewmodel: CinemaSelectionVie
         private var isItemSelected = false
 
         fun onBind(data: Region) {
-            binding.tvItemRegion.text = data.regionName
-            binding.tvItemRegionCount.text = "(${data.regionCount})"
-
-            binding.clItemRegion.setOnClickListener {
-                isItemSelected = !isItemSelected
-                selectedItemPosition = absoluteAdapterPosition
-                viewmodel.updateRegionItemSelected(isItemSelected)
-                Log.d("recyclerView", selectedItemPosition.toString())
-                if (isItemSelected) {
-                    binding.clItemRegion.setBackgroundColor(Color.parseColor("#EBEBEB"))
-                } else {
-                    binding.clItemRegion.setBackgroundColor(Color.WHITE)
+            with(binding) {
+                tvItemRegion.text = data.regionName
+                tvItemRegionCount.text = "(${data.regionCount})"
+                clItemRegion.setOnClickListener {
+                    isItemSelected = !isItemSelected
+                    selectedItemPosition = absoluteAdapterPosition
+                    viewmodel.updateRegionItemSelected(isItemSelected)
+                    Log.d("recyclerView", selectedItemPosition.toString())
+                    if (isItemSelected) {
+                        binding.clItemRegion.setBackgroundColor(Color.parseColor("#EBEBEB"))
+                    } else {
+                        binding.clItemRegion.setBackgroundColor(Color.WHITE)
+                    }
                 }
             }
         }
