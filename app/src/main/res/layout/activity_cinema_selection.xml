@@ -4,6 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="vm"
+            type="com.sopt.lottecinemaaos.presentation.selection.CinemaSelectionViewModel" />
 
     </data>
 
@@ -30,6 +35,8 @@
                 android:layout_marginVertical="17dp"
                 android:layout_marginStart="18dp"
                 android:background="@null"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
                 android:src="@drawable/ic_chevron_left_black" />
 
             <TextView
@@ -51,23 +58,90 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tb_selection">
 
+            <!--  visible 조절하기-->
+
             <TextView
                 android:id="@+id/tv_selection_limit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tv_selection_limit"
                 android:textAppearance="@style/Body2"
+                android:visibility="@{vm.isCinemaItemSelected ? View.GONE : View.VISIBLE}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/cl_selection_banner" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_selection_selected_cinema"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="12dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="70dp"
+                android:visibility="@{vm.isCinemaItemSelected ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@id/cl_selection_banner"
+                app:layout_constraintEnd_toEndOf="@id/cl_selection_banner"
+                app:layout_constraintStart_toStartOf="@id/cl_selection_banner"
+                app:layout_constraintTop_toTopOf="@id/cl_selection_banner">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcv_selection_chip"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="@id/cl_selection_selected_cinema"
+                    app:layout_constraintStart_toStartOf="@id/cl_selection_selected_cinema"
+                    app:layout_constraintTop_toTopOf="@id/cl_selection_selected_cinema"
+                    app:layout_constraintVertical_bias="0"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_selection_chip" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_selection_change_cinema"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="21dp"
+                android:layout_marginEnd="17dp"
+                android:layout_marginBottom="22dp"
+                android:visibility="@{vm.isCinemaItemSelected ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@id/cl_selection_banner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cl_selection_selected_cinema"
+                app:layout_constraintTop_toTopOf="@id/cl_selection_banner">
+
+                <TextView
+                    android:id="@+id/tv_selection_change_cinema"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="영화관 변경"
+                    android:textAppearance="@style/Caption2"
+                    app:layout_constraintBottom_toBottomOf="@id/cl_selection_change_cinema"
+                    app:layout_constraintStart_toStartOf="@id/cl_selection_change_cinema"
+                    app:layout_constraintTop_toTopOf="@id/cl_selection_change_cinema" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    app:dividerColor="@color/g_400"
+                    app:layout_constraintEnd_toEndOf="@id/tv_selection_change_cinema"
+                    app:layout_constraintStart_toStartOf="@id/tv_selection_change_cinema"
+                    app:layout_constraintTop_toBottomOf="@id/tv_selection_change_cinema" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_selection_main"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -81,7 +155,6 @@
                 app:layout_constraintEnd_toStartOf="@id/rcv_selection_cinema"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:itemCount="10"
                 tools:listitem="@layout/item_selection_region" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -93,17 +166,16 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/rcv_selection_region"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:itemCount="13"
                 tools:listitem="@layout/item_selection_cinema" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_selection_complete"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:background="@drawable/sel_selection_button"
+            android:enabled="@{vm.isCinemaItemSelected}"
+            android:background="@{vm.isCinemaItemSelected ? @drawable/bg_select_btn_gradient : @drawable/sel_selection_button}"
             android:text="@string/btn_selection_complete"
             android:textAppearance="@style/SubHead"
             android:textColor="@color/white"
