@@ -381,28 +381,119 @@
         android:layout_marginEnd="274dp"
         />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcv_castingList"
+    <GridLayout
+        android:id="@+id/gl_castingList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:nestedScrollingEnabled="false"
+        android:rowCount="3"
+        android:columnCount="5"
+        android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/tv_cast"
-        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="16dp"
-        tools:listitem="@layout/item_detail_castinglist">
-    </androidx.recyclerview.widget.RecyclerView>
+        >
+
+        <ImageView
+            android:id="@+id/img_cast1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/img_cast1"
+            />
+
+        <TextView
+            android:id="@+id/tv_cast1"
+            android:text="제임스 건"
+            android:textSize="12dp"
+            android:textColor="@color/g_600"
+            />
+
+        <TextView
+            android:text="감독"
+            android:textSize="10dp"
+            android:textColor="@color/g_200"
+            android:layout_gravity="center"
+            />
+
+        <ImageView
+            android:id="@+id/img_cast2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/img_cast2"
+            android:layout_marginStart="12dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_cast2"
+            android:text="크리스 프랫"
+            android:textSize="12dp"
+            android:textColor="@color/g_600"
+            android:layout_marginStart="12dp"
+            />
+
+        <ImageView
+            android:id="@+id/img_cast3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_row="0"
+            android:src="@drawable/img_cast3"
+            android:layout_marginStart="12dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_cast3"
+            android:text="조 샐다나"
+            android:textSize="12dp"
+            android:textColor="@color/g_600"
+            android:layout_marginStart="12dp"
+            />
+
+        <ImageView
+            android:id="@+id/img_cast4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_row="0"
+            android:src="@drawable/img_cast4"
+            android:layout_marginStart="12dp"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/tv_cast4"
+            android:text="데이브 바티스타"
+            android:textSize="12dp"
+            android:textColor="@color/g_600"
+            android:layout_marginStart="12dp"
+            android:gravity="center"
+            />
+
+        <ImageView
+            android:id="@+id/img_cast5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_row="0"
+            android:src="@drawable/img_cast5"
+            android:layout_marginStart="12dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_cast5"
+            android:text="카렌 길런"
+            android:textSize="12dp"
+            android:textColor="@color/g_600"
+            android:layout_marginStart="12dp"
+            />
+    </GridLayout>
 
     <ImageView
         android:id="@+id/iv_banner"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:src="@drawable/img_banner"
-        app:layout_constraintTop_toBottomOf="@id/rcv_castingList"
+        app:layout_constraintTop_toBottomOf="@id/gl_castingList"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="39dp"
         />
 
 
