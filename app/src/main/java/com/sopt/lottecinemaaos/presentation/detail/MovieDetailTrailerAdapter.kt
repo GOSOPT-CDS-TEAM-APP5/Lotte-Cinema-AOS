@@ -12,14 +12,14 @@ class MovieDetailTrailerAdapter(context: Context) :RecyclerView.Adapter<MovieDet
     private var itemList: List<Trailer> = emptyList()
 
     class DetailTrailerViewHolder(private var binding: ItemDetailTrailerBinding) :
-            RecyclerView.ViewHolder(binding.root) {
-                fun onBind(item: Trailer) {
-                    with (binding) {
-                        imgItemTrailer.setImageDrawable(root.context.getDrawable(item.src))
-                        tvItemTrailer.text = item.title
-                    }
-                }
+        RecyclerView.ViewHolder(binding.root) {
+        fun onBind(item: Trailer) {
+            with (binding) {
+                imgItemTrailer.setImageDrawable(root.context.getDrawable(item.src))
+                tvItemTrailer.text = item.title
             }
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetailTrailerViewHolder {
         val binding : ItemDetailTrailerBinding = ItemDetailTrailerBinding.inflate(inflater, parent, false)

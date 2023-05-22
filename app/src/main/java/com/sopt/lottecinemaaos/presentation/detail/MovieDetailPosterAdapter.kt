@@ -14,11 +14,11 @@ class MovieDetailPosterAdapter(context: Context) :RecyclerView.Adapter<MovieDeta
     private var itemList: List<Poster> = emptyList()
 
     class DetailPosterViewHolder(private val binding: ItemDetailPosterBinding) :
-            RecyclerView.ViewHolder(binding.root) {
-                fun onBind(item: Poster) {
-                    binding.imgItemPoster.setImageDrawable(binding.root.context.getDrawable(item.src))
-                }
-            }
+        RecyclerView.ViewHolder(binding.root) {
+        fun onBind(item: Poster) {
+            binding.imgItemPoster.setImageDrawable(binding.root.context.getDrawable(item.src))
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetailPosterViewHolder {
         val binding: ItemDetailPosterBinding = ItemDetailPosterBinding.inflate(inflater, parent, false)
