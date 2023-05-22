@@ -1,4 +1,4 @@
-package com.sopt.lottecinemaaos.presentation.selection
+package com.sopt.lottecinemaaos.presentation.selection.theater
 
 import android.os.Bundle
 import android.view.View
