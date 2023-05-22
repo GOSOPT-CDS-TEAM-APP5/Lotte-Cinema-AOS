@@ -29,15 +29,14 @@
 
         </activity>
         <activity
-            android:name=".presentation.home.CinemaHomeActivity"
-            android:exported="false" />
-        <activity
             android:name=".presentation.detail.MovieDetailActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.main.MainActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
+         
+
     </application>
 
 </manifest>

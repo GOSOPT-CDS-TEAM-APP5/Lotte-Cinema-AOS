@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_popcorn"
+        android:title="바로팝콘"
+        android:iconTint="@color/black"
+        android:icon="@drawable/ic_popcorn" />
+    <item
+        android:id="@+id/menu_event"
+        android:title="이벤트"
+        android:iconTint="@color/black"
+        android:icon="@drawable/ic_event" />
+    <item
+        android:id="@+id/menu_reserve"
+        android:title="바로예매"
+        android:iconTint="@color/black"
+        android:icon="@drawable/ic_ticket_black" />
+    <item
+        android:id="@+id/menu_mypage"
+        android:title="마이"
+        android:iconTint="@color/black"
+        android:icon="@drawable/ic_mypage" />
+    <item
+        android:id="@+id/menu_menu"
+        android:title="메뉴"
+        android:iconTint="@color/black"
+        android:icon="@drawable/ic_menu" />
+</menu>
