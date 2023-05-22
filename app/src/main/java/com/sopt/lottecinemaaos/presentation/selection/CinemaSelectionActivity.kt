@@ -10,35 +10,43 @@ import com.sopt.lottecinemaaos.util.base.BindingActivity
 class CinemaSelectionActivity :
     BindingActivity<ActivityCinemaSelectionBinding>(R.layout.activity_cinema_selection) {
     private val viewModel by viewModels<CinemaSelectionViewModel>()
+    private lateinit var cinemaAdapter: CinemaSelectionListAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding.vm = viewModel
         val regionAdapter = CinemaRegionSelectionListAdapter(viewModel)
-        val cinemaAdapter = CinemaSelectionListAdapter()
-        initAdapter(regionAdapter, cinemaAdapter)
+        cinemaAdapter = CinemaSelectionListAdapter(::clickCinemaItem, ::unclickCinemaItem)
+        val chipAdapter = CinemaSelectionChipAdapter()
+        initAdapter(regionAdapter, cinemaAdapter, chipAdapter)
         observeRegionItemSelected()
     }
 
     private fun initAdapter(
         regionAdapter: CinemaRegionSelectionListAdapter,
-        cinemaAdapter: CinemaSelectionListAdapter
+        cinemaAdapter: CinemaSelectionListAdapter,
+        chipAdapter: CinemaSelectionChipAdapter
     ) {
         regionAdapter.submitList(viewModel.regionList)
         cinemaAdapter.submitList(viewModel.cinemaList)
-        binding.rcvSelectionRegion.also {
-            it.adapter = regionAdapter
-        }
-        binding.rcvSelectionCinema.also {
-            it.adapter = cinemaAdapter
-        }
+        binding.rcvSelectionRegion.adapter = regionAdapter
+        binding.rcvSelectionCinema.adapter = cinemaAdapter
+        binding.rcvSelectionChip.adapter = chipAdapter
     }
 
     private fun observeRegionItemSelected() {
-        viewModel.isRegionItemSelected.observe(this) {
-            if (viewModel.isRegionItemSelected.value == true) {
+        viewModel.isRegionItemSelected.observe(this) { isItemSelected ->
+            if (isItemSelected) {
                 binding.rcvSelectionCinema.visibility = View.VISIBLE
             } else {
                 binding.rcvSelectionCinema.visibility = View.INVISIBLE
             }
         }
     }
+
+    private fun clickCinemaItem(itemPosition: Int) =
+        viewModel.addCinemaItemSelected(itemPosition)
+
+    private fun unclickCinemaItem(itemPosition: Int) =
+        viewModel.removeCinemaItemSelected(itemPosition)
 }

@@ -1,5 +1,6 @@
 package com.sopt.lottecinemaaos.presentation.selection
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,6 +11,37 @@ class CinemaSelectionViewModel : ViewModel() {
     private val _isRegionItemSelected = MutableLiveData<Boolean>()
     val isRegionItemSelected: LiveData<Boolean>
         get() = _isRegionItemSelected
+
+    private val _isCinemaItemSelected = MutableLiveData(false)
+    val isCinemaItemSelected: LiveData<Boolean>
+        get() = _isCinemaItemSelected
+
+    private val _selectedCinemaItemList = MutableLiveData<List<Int>>(emptyList())
+    val selectedCinemaItemList: LiveData<List<Int>>
+        get() = _selectedCinemaItemList
+
+    fun addCinemaItemSelected(itemPosition: Int) {
+        val currentList = _selectedCinemaItemList.value.orEmpty().toMutableList()
+        if (!currentList.contains(itemPosition + 1)) {
+            currentList.add(itemPosition + 1)
+            _isCinemaItemSelected.value = true
+            _selectedCinemaItemList.value = currentList.toList()
+            Log.d("흠", currentList.toString())
+        }
+    }
+
+    fun removeCinemaItemSelected(itemPosition: Int) {
+        val currentList = _selectedCinemaItemList.value.orEmpty().toMutableList()
+        if (currentList.contains(itemPosition + 1)) {
+            currentList.remove(itemPosition + 1)
+            _isCinemaItemSelected.value = true
+            _selectedCinemaItemList.value = currentList.toList()
+            Log.d("흠2", currentList.toString())
+        }
+        if (currentList.isEmpty()) {
+            _isCinemaItemSelected.value = false
+        }
+    }
 
     val regionList: List<Region> =
         listOf(
