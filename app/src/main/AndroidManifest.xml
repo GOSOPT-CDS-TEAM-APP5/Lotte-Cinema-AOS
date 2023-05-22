@@ -29,11 +29,12 @@
             </intent-filter>
 
         </activity>
+            android:exported="false" />
         <activity
             android:name=".presentation.detail.MovieDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.main.MainActivity"
+            android:name=".presentation.selection.main.MainActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 
