@@ -18,21 +18,20 @@
             android:name=".presentation.selection.CinemaSelectionActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.home.CinemaHomeActivity"
-            android:exported="false" />
-        <activity
             android:name=".presentation.detail.MovieDetailActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.main.MainActivity"
-            android:exported="true"
-            android:screenOrientation="portrait">
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
+
+
+
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity> <!--dd-->
     </application>
 
 </manifest>
