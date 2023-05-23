@@ -23,6 +23,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField "String", "LOTTE_CINEMA_URL", properties["lotte.cinema.url"]
+        buildConfigField "String","AUTH_BASE_URL",properties["auth.base.url"]
     }
 
     buildTypes {
