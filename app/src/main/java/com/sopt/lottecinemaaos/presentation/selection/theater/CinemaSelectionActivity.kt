@@ -29,9 +29,11 @@ class CinemaSelectionActivity :
     ) {
         regionAdapter.submitList(viewModel.regionList)
         cinemaAdapter.submitList(viewModel.cinemaList)
-        binding.rcvSelectionRegion.adapter = regionAdapter
-        binding.rcvSelectionCinema.adapter = cinemaAdapter
-        binding.rcvSelectionChip.adapter = chipAdapter
+        with(binding) {
+            rcvSelectionRegion.adapter = regionAdapter
+            rcvSelectionCinema.adapter = cinemaAdapter
+            rcvSelectionChip.adapter = chipAdapter
+        }
     }
 
     private fun observeRegionItemSelected() {
