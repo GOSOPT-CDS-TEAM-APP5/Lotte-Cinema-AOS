@@ -3,33 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cl_item_date_background"
-    android:layout_width="42dp"
-    android:layout_height="51dp"
+    android:layout_width="40dp"
+    android:layout_height="48dp"
     android:layout_marginEnd="10dp"
     android:background="@drawable/shape_g100_r4_rect">
 
-        <TextView
-            android:id="@+id/tv_item_date"
-            style="@style/Roboto2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:text="7"
-            android:lineHeight="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tv_item_date"
+        style="@style/Roboto2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
         android:id="@+id/tv_item_day"
+        style="@style/Caption2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="일"
-        style="@style/Caption2"
         android:layout_marginBottom="8dp"
+        android:text="일"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/tv_item_date"
         app:layout_constraintStart_toStartOf="@+id/tv_item_date"
