@@ -17,9 +17,10 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="158dp"
-            android:src="@drawable/img_home_movie_chart_movie"
+            android:src="@drawable/img_home_movie_poster1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:elevation="3dp"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
