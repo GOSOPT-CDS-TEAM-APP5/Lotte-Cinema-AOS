@@ -3,6 +3,7 @@ package com.sopt.lottecinemaaos.presentation.selection.movietime
 import androidx.lifecycle.ViewModel
 import com.sopt.lottecinemaaos.data.entity.Calendar
 import com.sopt.lottecinemaaos.data.entity.Cinema
+import com.sopt.lottecinemaaos.data.entity.TimeTable
 
 class MovieTimeSelectionViewModel : ViewModel() {
     val cinemaList: List<Cinema> =
@@ -25,5 +26,18 @@ class MovieTimeSelectionViewModel : ViewModel() {
             Calendar(7, 13, "토"),
             Calendar(8, 14, "일")
 
+        )
+
+    val timeList: List<TimeTable> =
+        listOf(
+            TimeTable("13:00", "14:00", "130", "150"),
+            TimeTable("12:00", "15:00", "134", "150"),
+            TimeTable("15:00", "20:00", "112", "150"),
+            TimeTable("13:00", "14:00", "130", "150"),
+            TimeTable("12:00", "15:00", "134", "150"),
+            TimeTable("15:00", "20:00", "112", "150"),
+            TimeTable("13:00", "14:00", "130", "150"),
+            TimeTable("12:00", "15:00", "134", "150"),
+            TimeTable("15:00", "20:00", "112", "150")
         )
 }

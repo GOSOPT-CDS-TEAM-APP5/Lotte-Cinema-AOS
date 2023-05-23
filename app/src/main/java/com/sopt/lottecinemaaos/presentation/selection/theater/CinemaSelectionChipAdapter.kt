@@ -1,6 +1,8 @@
 package com.sopt.lottecinemaaos.presentation.selection.theater
 
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -10,7 +12,7 @@ import com.sopt.lottecinemaaos.presentation.selection.theater.CinemaSelectionChi
 import com.sopt.lottecinemaaos.util.ItemDiffCallback
 
 class CinemaSelectionChipAdapter(
-//    private val selectedCinemaItemList: List<Int>
+    private val selectedCinemaItemList: List<Int>
 ) :
     ListAdapter<Cinema, CinemaChipViewHolder>(
         ItemDiffCallback<Cinema>(
@@ -25,12 +27,12 @@ class CinemaSelectionChipAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: Cinema) {
             binding.tvSelectionChip.text = "테스트"
-//            Log.d("현재", selectedCinemaItemList.toString())
-//            if (selectedCinemaItemList.isNotEmpty()) {
-//                binding.tvSelectionChip.visibility = View.VISIBLE
-//            } else {
-//                binding.tvSelectionChip.visibility = View.GONE
-//            }
+            Log.d("현재", selectedCinemaItemList.toString())
+            if (selectedCinemaItemList.isNotEmpty()) {
+                binding.tvSelectionChip.visibility = View.VISIBLE
+            } else {
+                binding.tvSelectionChip.visibility = View.GONE
+            }
         }
     }
 

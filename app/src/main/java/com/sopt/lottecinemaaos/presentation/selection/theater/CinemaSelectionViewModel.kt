@@ -82,6 +82,9 @@ class CinemaSelectionViewModel : ViewModel() {
 
         )
 
+    val testList: List<Int> =
+        listOf(1, 2)
+
     fun updateRegionItemSelected(isSelected: Boolean) {
         _isRegionItemSelected.value = isSelected
     }
