@@ -58,8 +58,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tb_selection">
 
-            <!--  visible 조절하기-->
-
             <TextView
                 android:id="@+id/tv_selection_limit"
                 android:layout_width="wrap_content"
@@ -78,7 +76,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginVertical="12dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="70dp"
+                android:layout_marginEnd="78dp"
                 android:visibility="@{vm.isCinemaItemSelected ? View.VISIBLE : View.GONE}"
                 app:layout_constraintBottom_toBottomOf="@id/cl_selection_banner"
                 app:layout_constraintEnd_toEndOf="@id/cl_selection_banner"
