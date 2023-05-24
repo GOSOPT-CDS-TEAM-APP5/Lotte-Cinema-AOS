@@ -31,7 +31,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="브로드웨이(신사)" />
+            tools:text="브로드웨이(신사)" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

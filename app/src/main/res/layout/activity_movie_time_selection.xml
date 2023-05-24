@@ -42,6 +42,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
                 android:src="@drawable/img_movietime_banner" />
+
+
         </androidx.appcompat.widget.Toolbar>
 
         <ImageView
@@ -278,7 +280,6 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="vertical"
             tools:listitem="@layout/item_selection_theater_timetable" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

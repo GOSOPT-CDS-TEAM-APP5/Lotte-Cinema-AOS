@@ -36,9 +36,8 @@
         <activity
             android:name=".presentation.main.MainActivity"
             android:exported="false"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" />
 
-        </activity>
     </application>
 
 </manifest>

@@ -1,5 +1,4 @@
 package com.sopt.lottecinemaaos.presentation.selection.theater
-
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -33,6 +32,7 @@ class CinemaSelectionChipAdapter(
             } else {
                 binding.tvSelectionChip.visibility = View.GONE
             }
+
         }
     }
 
