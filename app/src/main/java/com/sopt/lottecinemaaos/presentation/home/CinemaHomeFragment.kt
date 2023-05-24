@@ -2,6 +2,7 @@ package com.sopt.lottecinemaaos.presentation.home
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sopt.lottecinemaaos.R
@@ -15,17 +16,19 @@ class CinemaHomeFragment :
     private val viewModel by viewModels <CinemaHomeViewModel>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        getMovieChartData()
         setViewPager()
         setMovieFeedRV()
         setEventFragment()
         setEventBtn()
+    }
+
+    private fun getMovieChartData(){
         viewModel.getMovieChart()
         viewModel.movieChartData.observe(requireActivity()){
             setMovieChartRV(it)
         }
     }
-
     private fun setViewPager() {
         with(binding) {
             layoutTopViewpager.adapter = CinemaHomeVPAdapter().apply {
@@ -42,9 +45,7 @@ class CinemaHomeFragment :
     }
 
     private fun setEventFragment() {
-        childFragmentManager.beginTransaction()
-            .replace(R.id.fc_child_fragment, CinemaHomeEventSubFragment())
-            .commit()
+        changeChildFragment(CinemaHomeEventSubFragment())
     }
 
     private fun setMovieChartRV(data : ArrayList<ResponseHomeMovieChartDto>) {
@@ -68,17 +69,20 @@ class CinemaHomeFragment :
     private fun setEventBtn() {
         with(binding) {
             btnRecommend.setOnClickListener {
-                childFragmentManager.beginTransaction()
-                    .replace(R.id.fc_child_fragment, CinemaHomeEventSubFragment()).commit()
+                changeChildFragment(CinemaHomeEventSubFragment())
             }
             btnMovie.setOnClickListener {
-                childFragmentManager.beginTransaction()
-                    .replace(R.id.fc_child_fragment, CinemaHomeEventOtherFragment()).commit()
+                changeChildFragment(CinemaHomeEventOtherFragment())
             }
             btnAlliance.setOnClickListener {
-                childFragmentManager.beginTransaction()
-                    .replace(R.id.fc_child_fragment, CinemaHomeEventOtherFragment()).commit()
+                changeChildFragment(CinemaHomeEventOtherFragment())
             }
         }
+    }
+
+    private fun changeChildFragment(fragment: Fragment){
+        childFragmentManager.beginTransaction()
+            .replace(R.id.fc_child_fragment, fragment)
+            .commit()
     }
 }

@@ -19,7 +19,6 @@ object HomeMovieChartRemoteDataSource {
             ) {
                 if (response.isSuccessful){
                     callback.onSuccess(response.body())
-                    Log.e("hyeon",response.body().toString())
                 }
             }
 

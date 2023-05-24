@@ -22,7 +22,6 @@ class CinemaHomeViewModel : ViewModel() {
             override fun onSuccess(data: ArrayList<ResponseHomeMovieChartDto>?) {
                data?.let{
                    _movieChartData.value=it
-                   Log.e("hyeon",_movieChartData.value.toString())
                }
             }
 
