@@ -31,9 +31,10 @@
                 android:id="@+id/tv_movie_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="가디언즈 오브 갤…"
+                tools:text="가디언즈 오브 갤…"
                 android:textColor="@color/black"
                 android:textSize="12sp"
+                android:layout_marginTop="8dp"
                 android:font="@font/noto_sans_medium"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -58,7 +59,7 @@
                 android:id="@+id/tv_people"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="예매율"
+                tools:text="예매율"
                 android:textColor="@color/red_DB291D"
                 android:textSize="10sp"
                 android:font="@font/noto_sans_regular"
@@ -70,7 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
-                android:text="37.2"
+                tools:text="37.2"
                 android:textColor="@color/g_200"
                 android:textSize="10sp"
                 android:font="@font/noto_sans_medium"
@@ -83,7 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
-                android:text="%"
+                tools:text="%"
                 android:textColor="@color/g_200"
                 android:textSize="10sp"
                 android:font="@font/noto_sans_regular"
@@ -94,7 +95,7 @@
                 android:id="@+id/layout_star"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -103,7 +104,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:text="9.6"
+                    tools:text="9.6"
                     android:textColor="@color/g_200"
                     android:textSize="10sp"
                     android:font="@font/noto_sans_regular"
@@ -124,7 +125,7 @@
                 android:id="@+id/layout_day"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -132,11 +133,12 @@
                     android:id="@+id/tv_d_day"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="D-"
+                    tools:text="D-"
                     android:font="@font/noto_sans_regular"
                     android:textColor="@color/g_200"
                     android:textSize="10sp"
                     app:layout_constraintEnd_toStartOf="@id/tv_day_num"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/tv_day_num" />
 
                 <TextView
@@ -144,7 +146,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="17dp"
-                    android:text="9"
+                    tools:text="9"
                     android:font="@font/noto_sans_regular"
                     android:textColor="@color/g_200"
                     android:textSize="10sp"
