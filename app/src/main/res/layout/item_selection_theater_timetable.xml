@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
+        android:layout_marginStart="15dp"
         android:background="@drawable/ic_star"
         android:backgroundTint="@color/g_200"
         android:text=""
@@ -36,6 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginStart="15dp"
         android:text="2D"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/tv_movietime_star_icon"
@@ -844,6 +846,16 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="0dp"
+        android:layout_height="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_movietime_timetable8"
+        android:layout_marginTop="16dp"
+        app:dividerColor="@color/g_100"
+
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
