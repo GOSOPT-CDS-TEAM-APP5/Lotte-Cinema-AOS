@@ -2,6 +2,7 @@ package com.sopt.lottecinemaaos.data.model
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.sopt.lottecinemaaos.BuildConfig
+import com.sopt.lottecinemaaos.data.model.ApiFactory.retrofit
 import com.sopt.lottecinemaaos.data.service.LotteCinemaService
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
@@ -15,7 +16,6 @@ object ApiFactory {
             .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
             .build()
     }
-
     inline fun <reified T> create():T = retrofit.create(T::class.java)
 }
 object ServicePool{
