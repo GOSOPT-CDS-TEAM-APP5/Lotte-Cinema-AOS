@@ -1,4 +1,4 @@
-package com.sopt.lottecinemaaos.domain.model
+package com.sopt.lottecinemaaos.data.entity
 
 data class MovieChart(
     val viewType: Int,

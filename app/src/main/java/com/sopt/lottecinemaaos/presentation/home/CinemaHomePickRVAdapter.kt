@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sopt.lottecinemaaos.R
 import com.sopt.lottecinemaaos.databinding.ItemHomeMovieFeedBinding
-import com.sopt.lottecinemaaos.domain.model.HomeLottePick
+import com.sopt.lottecinemaaos.data.entity.HomeLottePick
 
 class CinemaHomePickRVAdapter(context: Context) :
     RecyclerView.Adapter<CinemaHomePickRVAdapter.CinemaHomePickViewHolder>() {
@@ -21,7 +21,7 @@ class CinemaHomePickRVAdapter(context: Context) :
 
     class CinemaHomePickViewHolder(private val binding: ItemHomeMovieFeedBinding) :
         RecyclerView.ViewHolder(binding.root) {
-            fun bind(item:HomeLottePick){
+            fun bind(item: HomeLottePick){
                 with(binding){
                     tvTitle.text = item.title
                     tvDay.text = item.day
