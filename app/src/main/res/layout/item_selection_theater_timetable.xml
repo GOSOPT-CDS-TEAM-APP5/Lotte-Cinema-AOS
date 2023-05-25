@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    >
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/tv_movietime_star_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
         android:layout_marginStart="15dp"
+        android:layout_marginTop="27dp"
         android:background="@drawable/ic_star"
         android:backgroundTint="@color/g_200"
         android:text=""
@@ -25,23 +23,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="홍대입구"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/tv_movietime_star_icon"
         app:layout_constraintStart_toEndOf="@+id/tv_movietime_star_icon"
-        app:layout_constraintTop_toTopOf="@+id/tv_movietime_star_icon" />
+        app:layout_constraintTop_toTopOf="@+id/tv_movietime_star_icon"
+        tools:text="홍대입구" />
 
     <TextView
         android:id="@+id/tv_movietime_type"
         style="@style/Caption1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="15dp"
-        android:text="2D"
+        android:layout_marginTop="16dp"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/tv_movietime_star_icon"
-        app:layout_constraintTop_toBottomOf="@+id/tv_movietime_star_icon" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_movietime_star_icon"
+        tools:text="2D" />
 
     <TextView
         android:id="@+id/tv_movietime_place"
@@ -49,292 +46,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:text="2관"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/tv_movietime_type"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_movietime_type" />
+        app:layout_constraintTop_toTopOf="@+id/tv_movietime_type"
+        tools:text="2관" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_movietime_timetable1"
-        android:layout_width="90dp"
-        android:layout_height="60dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_movietime_timetable1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="14dp"
-        android:background="@drawable/shape_g100_r4_rect"
-        app:layout_constraintStart_toStartOf="@+id/tv_movietime_type"
-        app:layout_constraintTop_toBottomOf="@+id/tv_movietime_type">
-
-        <TextView
-            android:id="@+id/tv_movietime_start1"
-            style="@style/Roboto2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:text="10:40"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_movietime_end1"
-            style="@style/Roboto3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:text="~13:20"
-            android:textColor="@color/g_200"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_movietime_start1"
-            app:layout_constraintStart_toEndOf="@+id/tv_movietime_start1" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_movietime_bottom_background1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="12dp"
-            android:background="@color/g_100"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_movietime_end1">
-
-            <TextView
-                android:id="@+id/tv_movietime_current_people1"
-                style="@style/Roboto3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="3dp"
-                android:layout_marginStart="24dp"
-                android:text="169 "
-                android:textColor="@color/sm_green"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_movietime_max_people1"
-                style="@style/Roboto3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" /186"
-                android:textColor="@color/g_400"
-                app:layout_constraintStart_toEndOf="@+id/tv_movietime_current_people1"
-                app:layout_constraintTop_toTopOf="@+id/tv_movietime_current_people1" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_movietime_timetable2"
-        android:layout_width="90dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="6dp"
-        android:background="@drawable/shape_g100_r4_rect"
-        app:layout_constraintStart_toEndOf="@id/cl_movietime_timetable1"
-        app:layout_constraintTop_toTopOf="@+id/cl_movietime_timetable1">
-
-        <TextView
-            android:id="@+id/tv_movietime_start2"
-            style="@style/Roboto2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:text="10:40"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_movietime_end2"
-            style="@style/Roboto3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:text="~13:20"
-            android:textColor="@color/g_200"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_movietime_start2"
-            app:layout_constraintStart_toEndOf="@+id/tv_movietime_start2" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_movietime_bottom_background2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="12dp"
-            android:background="@color/g_100"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_movietime_end2">
-
-            <TextView
-                android:id="@+id/tv_movietime_current_people2"
-                style="@style/Roboto3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="3dp"
-                android:layout_marginStart="24dp"
-                android:text="169 "
-                android:textColor="@color/sm_green"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_movietime_max_people2"
-                style="@style/Roboto3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" /186"
-                android:textColor="@color/g_400"
-                app:layout_constraintStart_toEndOf="@+id/tv_movietime_current_people2"
-                app:layout_constraintTop_toTopOf="@+id/tv_movietime_current_people2" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_movietime_timetable3"
-        android:layout_width="90dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="6dp"
-        android:background="@drawable/shape_g100_r4_rect"
-        app:layout_constraintStart_toEndOf="@id/cl_movietime_timetable2"
-        app:layout_constraintTop_toTopOf="@+id/cl_movietime_timetable2">
-
-        <TextView
-            android:id="@+id/tv_movietime_start3"
-            style="@style/Roboto2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:text="10:40"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_movietime_end3"
-            style="@style/Roboto3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:text="~13:20"
-            android:textColor="@color/g_200"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_movietime_start3"
-            app:layout_constraintStart_toEndOf="@+id/tv_movietime_start3" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_movietime_bottom_background3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="12dp"
-            android:background="@color/g_100"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_movietime_end3">
-
-            <TextView
-                android:id="@+id/tv_movietime_current_people3"
-                style="@style/Roboto3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="3dp"
-                android:layout_marginStart="24dp"
-                android:text="169 "
-                android:textColor="@color/sm_green"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_movietime_max_people3"
-                style="@style/Roboto3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" /186"
-                android:textColor="@color/g_400"
-                app:layout_constraintStart_toEndOf="@+id/tv_movietime_current_people3"
-                app:layout_constraintTop_toTopOf="@+id/tv_movietime_current_people3" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_movietime_timetable4"
-        android:layout_width="90dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="6dp"
-        android:background="@drawable/shape_g100_r4_rect"
-        app:layout_constraintStart_toEndOf="@id/cl_movietime_timetable3"
-        app:layout_constraintTop_toTopOf="@+id/cl_movietime_timetable3">
-
-        <TextView
-            android:id="@+id/tv_movietime_start4"
-            style="@style/Roboto2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:text="10:40"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_movietime_end4"
-            style="@style/Roboto3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:text="~13:20"
-            android:textColor="@color/g_200"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_movietime_start4"
-            app:layout_constraintStart_toEndOf="@+id/tv_movietime_start4" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_movietime_bottom_background4"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="12dp"
-            android:background="@color/g_100"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_movietime_end4">
-
-            <TextView
-                android:id="@+id/tv_movietime_current_people4"
-                style="@style/Roboto3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="3dp"
-                android:layout_marginStart="24dp"
-                android:text="169 "
-                android:textColor="@color/sm_green"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_movietime_max_people4"
-                style="@style/Roboto3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" /186"
-                android:textColor="@color/g_400"
-                app:layout_constraintStart_toEndOf="@+id/tv_movietime_current_people4"
-                app:layout_constraintTop_toTopOf="@+id/tv_movietime_current_people4" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_movietime_type"
+        tools:itemCount="4"
+        tools:listitem="@layout/item_selection_timetable" />
 
     <TextView
         android:id="@+id/tv_movietime_type2"
         style="@style/Caption1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="2D"
+        android:layout_marginTop="13dp"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/cl_movietime_timetable1"
-        app:layout_constraintTop_toBottomOf="@+id/cl_movietime_timetable1" />
+        app:layout_constraintStart_toStartOf="@+id/rcv_movietime_timetable1"
+        app:layout_constraintTop_toBottomOf="@+id/rcv_movietime_timetable1"
+        tools:text="2D" />
 
     <TextView
         android:id="@+id/tv_movietime_place2"
@@ -342,226 +82,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:text="3관"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/tv_movietime_type2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_movietime_type2" />
+        app:layout_constraintTop_toTopOf="@+id/tv_movietime_type2"
+        tools:text="3관" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_movietime_timetable5"
-        android:layout_width="90dp"
-        android:layout_height="60dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_movietime_timetable2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="14dp"
-        android:background="@drawable/shape_g100_r4_rect"
-        app:layout_constraintStart_toStartOf="@+id/tv_movietime_type2"
-        app:layout_constraintTop_toBottomOf="@+id/tv_movietime_type2">
-
-        <TextView
-            android:id="@+id/tv_movietime_start5"
-            style="@style/Roboto2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:text="10:40"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_movietime_end5"
-            style="@style/Roboto3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:text="~13:20"
-            android:textColor="@color/g_200"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_movietime_start5"
-            app:layout_constraintStart_toEndOf="@+id/tv_movietime_start5" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_movietime_bottom_background5"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="12dp"
-            android:background="@color/g_100"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_movietime_end5">
-
-            <TextView
-                android:id="@+id/tv_movietime_current_people5"
-                style="@style/Roboto3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="3dp"
-                android:layout_marginStart="24dp"
-                android:text="169 "
-                android:textColor="@color/sm_green"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_movietime_max_people5"
-                style="@style/Roboto3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" /186"
-                android:textColor="@color/g_400"
-                app:layout_constraintStart_toEndOf="@+id/tv_movietime_current_people5"
-                app:layout_constraintTop_toTopOf="@+id/tv_movietime_current_people5" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_movietime_timetable6"
-        android:layout_width="90dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="6dp"
-        android:background="@drawable/shape_g100_r4_rect"
-        app:layout_constraintStart_toEndOf="@+id/cl_movietime_timetable5"
-        app:layout_constraintTop_toTopOf="@+id/cl_movietime_timetable5">
-
-        <TextView
-            android:id="@+id/tv_movietime_start6"
-            style="@style/Roboto2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:text="10:40"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_movietime_end6"
-            style="@style/Roboto3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:text="~13:20"
-            android:textColor="@color/g_200"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_movietime_start6"
-            app:layout_constraintStart_toEndOf="@+id/tv_movietime_start6" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_movietime_bottom_background6"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="12dp"
-            android:background="@color/g_100"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_movietime_end6">
-
-            <TextView
-                android:id="@+id/tv_movietime_current_people6"
-                style="@style/Roboto3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="3dp"
-                android:layout_marginStart="24dp"
-                android:text="169 "
-                android:textColor="@color/sm_green"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_movietime_max_people6"
-                style="@style/Roboto3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" /186"
-                android:textColor="@color/g_400"
-                app:layout_constraintStart_toEndOf="@+id/tv_movietime_current_people6"
-                app:layout_constraintTop_toTopOf="@+id/tv_movietime_current_people6" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_movietime_timetable7"
-        android:layout_width="90dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="6dp"
-        android:background="@drawable/shape_g100_r4_rect"
-        app:layout_constraintStart_toEndOf="@+id/cl_movietime_timetable6"
-        app:layout_constraintTop_toTopOf="@+id/cl_movietime_timetable6">
-
-        <TextView
-            android:id="@+id/tv_movietime_start7"
-            style="@style/Roboto2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:text="10:40"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_movietime_end7"
-            style="@style/Roboto3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:text="~13:20"
-            android:textColor="@color/g_200"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_movietime_start7"
-            app:layout_constraintStart_toEndOf="@+id/tv_movietime_start7" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_movietime_bottom_background7"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="12dp"
-            android:background="@color/g_100"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_movietime_end7">
-
-            <TextView
-                android:id="@+id/tv_movietime_current_people7"
-                style="@style/Roboto3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="3dp"
-                android:layout_marginStart="24dp"
-                android:text="169 "
-                android:textColor="@color/sm_green"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_movietime_max_people7"
-                style="@style/Roboto3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" /186"
-                android:textColor="@color/g_400"
-                app:layout_constraintStart_toEndOf="@+id/tv_movietime_current_people7"
-                app:layout_constraintTop_toTopOf="@+id/tv_movietime_current_people7" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_movietime_type2"
+        tools:itemCount="3"
+        tools:listitem="@layout/item_selection_timetable" />
 
     <TextView
         android:id="@+id/tv_movietime_type3"
         style="@style/Caption1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="2D"
+        android:layout_marginTop="13dp"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/cl_movietime_timetable5"
-        app:layout_constraintTop_toBottomOf="@+id/cl_movietime_timetable5" />
+        app:layout_constraintStart_toStartOf="@+id/tv_movietime_type"
+        app:layout_constraintTop_toBottomOf="@+id/rcv_movietime_timetable2"
+        tools:text="2D" />
 
     <TextView
         android:id="@+id/tv_movietime_place3"
@@ -569,293 +118,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:text="5관"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/tv_movietime_type3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_movietime_type3" />
+        app:layout_constraintTop_toTopOf="@+id/tv_movietime_type3"
+        tools:text="5관" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_movietime_timetable8"
-        android:layout_width="90dp"
-        android:layout_height="60dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_movietime_timetable3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="14dp"
-        android:background="@drawable/shape_g100_r4_rect"
-        app:layout_constraintStart_toStartOf="@+id/tv_movietime_type3"
-        app:layout_constraintTop_toBottomOf="@+id/tv_movietime_type3">
-
-        <TextView
-            android:id="@+id/tv_movietime_start8"
-            style="@style/Roboto2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:text="10:40"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_movietime_end8"
-            style="@style/Roboto3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:text="~13:20"
-            android:textColor="@color/g_200"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_movietime_start8"
-            app:layout_constraintStart_toEndOf="@+id/tv_movietime_start8" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_movietime_bottom_background8"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="12dp"
-            android:background="@color/g_100"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_movietime_end8">
-
-            <TextView
-                android:id="@+id/tv_movietime_current_people8"
-                style="@style/Roboto3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="3dp"
-                android:layout_marginStart="24dp"
-                android:text="169 "
-                android:textColor="@color/sm_green"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_movietime_max_people8"
-                style="@style/Roboto3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" /186"
-                android:textColor="@color/g_400"
-                app:layout_constraintStart_toEndOf="@+id/tv_movietime_current_people8"
-                app:layout_constraintTop_toTopOf="@+id/tv_movietime_current_people8" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_movietime_timetable9"
-        android:layout_width="90dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="6dp"
-        android:background="@drawable/shape_g100_r4_rect"
-        app:layout_constraintStart_toEndOf="@+id/cl_movietime_timetable8"
-        app:layout_constraintTop_toTopOf="@+id/cl_movietime_timetable8">
-
-        <TextView
-            android:id="@+id/tv_movietime_start9"
-            style="@style/Roboto2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:text="10:40"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_movietime_end9"
-            style="@style/Roboto3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:text="~13:20"
-            android:textColor="@color/g_200"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_movietime_start9"
-            app:layout_constraintStart_toEndOf="@+id/tv_movietime_start9" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_movietime_bottom_background9"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="12dp"
-            android:background="@color/g_100"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_movietime_end9">
-
-            <TextView
-                android:id="@+id/tv_movietime_current_people9"
-                style="@style/Roboto3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="3dp"
-                android:layout_marginStart="24dp"
-                android:text="169 "
-                android:textColor="@color/sm_green"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_movietime_max_people9"
-                style="@style/Roboto3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" /186"
-                android:textColor="@color/g_400"
-                app:layout_constraintStart_toEndOf="@+id/tv_movietime_current_people9"
-                app:layout_constraintTop_toTopOf="@+id/tv_movietime_current_people9" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_movietime_timetable10"
-        android:layout_width="90dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="6dp"
-        android:background="@drawable/shape_g100_r4_rect"
-        app:layout_constraintStart_toEndOf="@+id/cl_movietime_timetable9"
-        app:layout_constraintTop_toTopOf="@+id/cl_movietime_timetable9">
-
-        <TextView
-            android:id="@+id/tv_movietime_start10"
-            style="@style/Roboto2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:text="10:40"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_movietime_end10"
-            style="@style/Roboto3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:text="~13:20"
-            android:textColor="@color/g_200"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_movietime_start10"
-            app:layout_constraintStart_toEndOf="@+id/tv_movietime_start10" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_movietime_bottom_background10"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="12dp"
-            android:background="@color/g_100"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_movietime_end10">
-
-            <TextView
-                android:id="@+id/tv_movietime_current_people10"
-                style="@style/Roboto3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="3dp"
-                android:layout_marginStart="24dp"
-                android:text="169 "
-                android:textColor="@color/sm_green"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_movietime_max_people10"
-                style="@style/Roboto3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" /186"
-                android:textColor="@color/g_400"
-                app:layout_constraintStart_toEndOf="@+id/tv_movietime_current_people10"
-                app:layout_constraintTop_toTopOf="@+id/tv_movietime_current_people10" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_movietime_timetable11"
-        android:layout_width="90dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="6dp"
-        android:background="@drawable/shape_g100_r4_rect"
-        app:layout_constraintStart_toEndOf="@+id/cl_movietime_timetable10"
-        app:layout_constraintTop_toTopOf="@+id/cl_movietime_timetable10">
-
-        <TextView
-            android:id="@+id/tv_movietime_start11"
-            style="@style/Roboto2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:text="10:40"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_movietime_end11"
-            style="@style/Roboto3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:text="~13:20"
-            android:textColor="@color/g_200"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_movietime_start11"
-            app:layout_constraintStart_toEndOf="@+id/tv_movietime_start11" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_movietime_bottom_background11"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="12dp"
-            android:background="@color/g_100"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_movietime_end11">
-
-            <TextView
-                android:id="@+id/tv_movietime_current_people11"
-                style="@style/Roboto3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="3dp"
-                android:layout_marginStart="24dp"
-                android:text="169 "
-                android:textColor="@color/sm_green"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_movietime_max_people11"
-                style="@style/Roboto3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" /186"
-                android:textColor="@color/g_400"
-                app:layout_constraintStart_toEndOf="@+id/tv_movietime_current_people11"
-                app:layout_constraintTop_toTopOf="@+id/tv_movietime_current_people11" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <com.google.android.material.divider.MaterialDivider
-        android:layout_width="0dp"
-        android:layout_height="4dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cl_movietime_timetable8"
-        android:layout_marginTop="16dp"
-        app:dividerColor="@color/g_100"
-
-        />
-
+        app:layout_constraintTop_toBottomOf="@+id/tv_movietime_type3"
+        tools:itemCount="4"
+        tools:listitem="@layout/item_selection_timetable" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
