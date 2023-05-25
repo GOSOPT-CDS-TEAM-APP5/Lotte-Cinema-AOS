@@ -25,9 +25,11 @@ class CinemaSelectionViewModel(private val movieSelectionRepositoryImpl: MovieSe
     val isCinemaItemSelected: LiveData<Boolean>
         get() = _isCinemaItemSelected
 
-    private val _selectedCinemaItemList = MutableLiveData<List<Int>>(emptyList())
+    private var _selectedCinemaItemList = MutableLiveData<List<Int>>(emptyList())
     val selectedCinemaItemList: LiveData<List<Int>>
         get() = _selectedCinemaItemList
+
+    val currentList = _selectedCinemaItemList.value.orEmpty().toMutableList()
 
     private var _regionData: MutableLiveData<List<Region>> = MutableLiveData()
     val regionData: LiveData<List<Region>>
@@ -60,22 +62,20 @@ class CinemaSelectionViewModel(private val movieSelectionRepositoryImpl: MovieSe
     }
 
     fun addCinemaItemSelected(itemPosition: Int) {
-        val currentList = _selectedCinemaItemList.value.orEmpty().toMutableList()
         if (!currentList.contains(itemPosition + 1)) {
             currentList.add(itemPosition + 1)
             _isCinemaItemSelected.value = true
             _selectedCinemaItemList.value = currentList.toList()
-            Log.d("흠", currentList.toString())
+//            Log.d("흠", _selectedCinemaItemList.value.toString())
         }
     }
 
     fun removeCinemaItemSelected(itemPosition: Int) {
-        val currentList = _selectedCinemaItemList.value.orEmpty().toMutableList()
         if (currentList.contains(itemPosition + 1)) {
             currentList.remove(itemPosition + 1)
             _isCinemaItemSelected.value = true
             _selectedCinemaItemList.value = currentList.toList()
-            Log.d("흠2", currentList.toString())
+//            Log.d("흠2", _selectedCinemaItemList.value.toString())
         }
         if (currentList.isEmpty()) {
             _isCinemaItemSelected.value = false

@@ -2,6 +2,7 @@ package com.sopt.lottecinemaaos.presentation.selection.theater
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
@@ -21,28 +22,31 @@ class CinemaSelectionActivity :
         binding.vm = viewModel
         val regionAdapter = CinemaRegionSelectionListAdapter(viewModel)
         cinemaAdapter = CinemaSelectionListAdapter(::clickCinemaItem, ::unclickCinemaItem)
-        val chipAdapter = CinemaSelectionChipAdapter(viewModel.testList)
-        initAdapter(regionAdapter, cinemaAdapter, chipAdapter)
+        initAdapter(regionAdapter, cinemaAdapter)
         observeRegionItemSelected()
         clickSelectedButton()
     }
 
     private fun initAdapter(
         regionAdapter: CinemaRegionSelectionListAdapter,
-        cinemaAdapter: CinemaSelectionListAdapter,
-        chipAdapter: CinemaSelectionChipAdapter
+        cinemaAdapter: CinemaSelectionListAdapter
     ) {
         viewModel.regionData.observe(this) {
             binding.rcvSelectionRegion.adapter = regionAdapter
             regionAdapter.submitList(it)
         }
         viewModel.theaterData.observe(this) {
-            with(binding) {
-                rcvSelectionCinema.adapter = cinemaAdapter
-                rcvSelectionChip.adapter = chipAdapter
-            }
+            binding.rcvSelectionCinema.adapter = cinemaAdapter
             cinemaAdapter.submitList(it)
-            chipAdapter.submitList(it)
+        }
+        viewModel.selectedCinemaItemList.observe(this) { selectedCinemaList ->
+            val chipAdapter = CinemaSelectionChipAdapter(
+                viewModel.selectedCinemaItemList.value.orEmpty(),
+                viewModel.theaterData.value.orEmpty()
+            )
+            chipAdapter.submitList(selectedCinemaList)
+            binding.rcvSelectionChip.adapter = chipAdapter
+            Log.d("cinema", selectedCinemaList.toString())
         }
     }
 

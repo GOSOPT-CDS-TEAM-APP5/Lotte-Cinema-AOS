@@ -12,10 +12,11 @@ import com.sopt.lottecinemaaos.presentation.selection.theater.CinemaSelectionChi
 import com.sopt.lottecinemaaos.util.ItemDiffCallback
 
 class CinemaSelectionChipAdapter(
-    private val selectedCinemaItemList: List<Int>
+    private val selectedCinemaItemList: List<Int>,
+    private val theaterList: List<Theater>
 ) :
-    ListAdapter<Theater, CinemaChipViewHolder>(
-        ItemDiffCallback<Theater>(
+    ListAdapter<Int, CinemaChipViewHolder>(
+        ItemDiffCallback<Int>(
             onContentsTheSame = { old, new -> old == new },
             onItemsTheSame = { old, new -> old == new }
         )
@@ -25,14 +26,15 @@ class CinemaSelectionChipAdapter(
         private val binding: ItemSelectionChipBinding
     ) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: Theater) {
-            binding.tvSelectionChip.text = "테스트"
-            Log.d("현재", selectedCinemaItemList.toString())
-            if (selectedCinemaItemList.isNotEmpty()) {
+        fun onBind(data: Int) {
+            val theaterName = theaterList.getOrNull(data - 1)?.name
+            if (theaterName != null) {
+                binding.tvSelectionChip.text = theaterName
                 binding.tvSelectionChip.visibility = View.VISIBLE
             } else {
                 binding.tvSelectionChip.visibility = View.GONE
             }
+            Log.d("현재", selectedCinemaItemList.toString())
         }
     }
 
@@ -43,7 +45,7 @@ class CinemaSelectionChipAdapter(
     }
 
     override fun onBindViewHolder(holder: CinemaChipViewHolder, position: Int) {
-        val cinema = getItem(position)
+        val cinema = getItem(position) as Int
         holder.onBind(cinema)
     }
 }
