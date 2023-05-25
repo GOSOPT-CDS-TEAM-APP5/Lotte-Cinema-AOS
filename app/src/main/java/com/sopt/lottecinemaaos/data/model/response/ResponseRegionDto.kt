@@ -11,10 +11,10 @@ data class ResponseRegionDto(
     @SerialName("message")
     val message: String,
     @SerialName("data")
-    val data: List<Region>
+    val data: List<RegionData>
 ) {
     @Serializable
-    data class Region(
+    data class RegionData(
         @SerialName("region_id")
         val regionId: Int,
         @SerialName("region_name")
@@ -25,9 +25,9 @@ data class ResponseRegionDto(
 
     fun toRegion() = data.map { region ->
         Region(
-            id = region.regionId,
-            name = region.regionName,
-            count = region.theaterCount
+            regionId = region.regionId,
+            regionName = region.regionName,
+            theaterCount = region.theaterCount
         )
     }
 }

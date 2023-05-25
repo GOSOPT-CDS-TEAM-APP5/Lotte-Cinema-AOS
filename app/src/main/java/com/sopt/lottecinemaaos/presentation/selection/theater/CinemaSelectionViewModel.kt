@@ -4,10 +4,19 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.sopt.lottecinemaaos.data.repository.MovieSelectionRepositoryImpl
 import com.sopt.lottecinemaaos.domain.model.Region
 import com.sopt.lottecinemaaos.domain.model.Theater
+import kotlinx.coroutines.launch
 
-class CinemaSelectionViewModel : ViewModel() {
+class CinemaSelectionViewModel(private val movieSelectionRepositoryImpl: MovieSelectionRepositoryImpl) :
+    ViewModel() {
+    init {
+        getRegionData()
+        getTheaterData()
+    }
+
     private val _isRegionItemSelected = MutableLiveData<Boolean>()
     val isRegionItemSelected: LiveData<Boolean>
         get() = _isRegionItemSelected
@@ -43,44 +52,59 @@ class CinemaSelectionViewModel : ViewModel() {
         }
     }
 
-    val regionList: List<Region> =
-        listOf(
-            Region(1, "MY 영화관", 0),
-            Region(2, "가까운 영화관", 1),
-            Region(3, "서울", 2),
-            Region(4, "경기", 3),
-            Region(5, "인천", 4),
-            Region(6, "충청", 5),
-            Region(7, "전라", 6),
-            Region(8, "경북", 7),
-            Region(9, "대구", 8),
-            Region(10, "경남", 9)
+    private var _regionData: MutableLiveData<List<Region>> = MutableLiveData()
+    val regionData: LiveData<List<Region>>
+        get() = _regionData
 
-        )
+    private var _theaterData: MutableLiveData<List<Theater>> = MutableLiveData()
+    val theaterData: LiveData<List<Theater>>
+        get() = _theaterData
 
-    val cinemaList: List<Theater> =
-        listOf(
-            Theater(1, "1"),
-            Theater(2, "2"),
-            Theater(3, "3"),
-            Theater(4, "4"),
-            Theater(5, "5"),
-            Theater(6, "6"),
-            Theater(7, "7"),
-            Theater(8, "8"),
-            Theater(9, "9"),
-            Theater(10, "10"),
-            Theater(11, "11"),
-            Theater(12, "12"),
-            Theater(13, "13"),
-            Theater(14, "14"),
-            Theater(15, "15"),
-            Theater(16, "16"),
-            Theater(17, "17"),
-            Theater(18, "18"),
-            Theater(19, "19")
+    private fun getRegionData() {
+        viewModelScope.launch {
+            movieSelectionRepositoryImpl.getRegionList().onSuccess { response ->
+                Log.d("cinemaSelection", "getRegionData 성공")
+                _regionData.value = response
+            }.onFailure { error ->
+                Log.d("cinemaSelection", "getRegionData 실패: ${error.message}")
+            }
+        }
+    }
 
-        )
+    private fun getTheaterData() {
+        viewModelScope.launch {
+            movieSelectionRepositoryImpl.getTheaterList(1).onSuccess { response ->
+                Log.d("cinemaSelection", "getTheaterData 성공")
+                _theaterData.value = response
+            }.onFailure { error ->
+                Log.d("cinemaSelection", "getTheaterData 실패: ${error.message}")
+            }
+        }
+    }
+
+//    val cinemaList: List<Theater> =
+//        listOf(
+//            Theater(1, "1"),
+//            Theater(2, "2"),
+//            Theater(3, "3"),
+//            Theater(4, "4"),
+//            Theater(5, "5"),
+//            Theater(6, "6"),
+//            Theater(7, "7"),
+//            Theater(8, "8"),
+//            Theater(9, "9"),
+//            Theater(10, "10"),
+//            Theater(11, "11"),
+//            Theater(12, "12"),
+//            Theater(13, "13"),
+//            Theater(14, "14"),
+//            Theater(15, "15"),
+//            Theater(16, "16"),
+//            Theater(17, "17"),
+//            Theater(18, "18"),
+//            Theater(19, "19")
+//
+//        )
 
     val testList: List<Int> =
         listOf(1, 2)
@@ -88,4 +112,27 @@ class CinemaSelectionViewModel : ViewModel() {
     fun updateRegionItemSelected(isSelected: Boolean) {
         _isRegionItemSelected.value = isSelected
     }
+
+    /*
+    private fun signUp() {
+        val requestSignUpDto = RequestSignUpDto(
+            id = id.value.toString(),
+            password = pwd.value.toString(),
+            name = name.value.toString(),
+            skill = skill.value.toString()
+        )
+        viewModelScope.launch {
+            runCatching {
+                authRepository.signUp(
+                    requestSignUpDto
+                )
+            }.onSuccess {
+                _isSignUpSuccess.value = true
+            }.onFailure {
+                _isSignUpSuccess.value = false
+                _errorMessage.value = it.message
+            }
+        }
+    }
+     */
 }

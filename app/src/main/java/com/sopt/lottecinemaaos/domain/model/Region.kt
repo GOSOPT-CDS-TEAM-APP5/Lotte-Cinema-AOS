@@ -1,8 +1,8 @@
 package com.sopt.lottecinemaaos.domain.model
 
 data class Region(
-    val id: Int,
-    val name: String,
-    val count: Int
+    val regionId: Int,
+    val regionName: String,
+    val theaterCount: Int
 
 )

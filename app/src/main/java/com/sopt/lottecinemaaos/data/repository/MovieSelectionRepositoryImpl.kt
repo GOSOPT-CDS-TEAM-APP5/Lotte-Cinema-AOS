@@ -18,9 +18,9 @@ class MovieSelectionRepositoryImpl(private val selectionDataSource: MovieSelecti
             Log.d("region", "region get 실패..")
         }
 
-    override suspend fun getTheaterList(regionId: Int): Result<List<Theater>> =
+    override suspend fun getTheaterList(id: Int): Result<List<Theater>> =
         runCatching {
-            selectionDataSource.getTheaterLocation(regionId).toTheater()
+            selectionDataSource.getTheaterLocation(id).toTheater()
         }.onSuccess {
             Log.d("theater", "theater get 성공")
         }.onFailure {
@@ -31,7 +31,16 @@ class MovieSelectionRepositoryImpl(private val selectionDataSource: MovieSelecti
         date: String,
         movieId: Int,
         theaterId: Int
-    ): Result<ResponseScheduleDto> {
-        TODO("Not yet implemented")
-    }
+    ): Result<List<ResponseScheduleDto.Cinema.MultiplexList.ScheduleList>> =
+        runCatching {
+            selectionDataSource.getMovieSchedule(
+                date,
+                movieId,
+                theaterId
+            ).data[2].multiplexList[0].scheduleList
+        }.onSuccess {
+            Log.d("schedule", "schedule get 성공")
+        }.onFailure {
+            Log.d("schedule", "schedule get 실패..")
+        }
 }

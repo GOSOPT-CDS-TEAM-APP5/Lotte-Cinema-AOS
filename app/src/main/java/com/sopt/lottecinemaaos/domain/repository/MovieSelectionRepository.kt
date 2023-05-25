@@ -6,10 +6,10 @@ import com.sopt.lottecinemaaos.domain.model.Theater
 
 interface MovieSelectionRepository {
     suspend fun getRegionList(): Result<List<Region>>
-    suspend fun getTheaterList(regionId: Int): Result<List<Theater>>
+    suspend fun getTheaterList(id: Int): Result<List<Theater>>
     suspend fun getMovieSchedule(
         date: String,
         movieId: Int,
         theaterId: Int
-    ): Result<ResponseScheduleDto>
+    ): Result<List<ResponseScheduleDto.Cinema.MultiplexList.ScheduleList>>
 }

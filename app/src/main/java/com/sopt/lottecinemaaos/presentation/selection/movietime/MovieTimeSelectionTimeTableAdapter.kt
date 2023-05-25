@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.sopt.lottecinemaaos.data.entity.TimeTable
 import com.sopt.lottecinemaaos.databinding.ItemSelectionTheaterTimetableBinding
+import com.sopt.lottecinemaaos.domain.model.TimeTable
 import com.sopt.lottecinemaaos.util.ItemDiffCallback
 
 class MovieTimeSelectionTimeTableAdapter :

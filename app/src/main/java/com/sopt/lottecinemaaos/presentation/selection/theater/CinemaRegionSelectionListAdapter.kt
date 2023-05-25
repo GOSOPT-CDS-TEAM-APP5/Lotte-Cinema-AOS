@@ -26,7 +26,7 @@ class CinemaRegionSelectionListAdapter(private val viewmodel: CinemaSelectionVie
     }
 
     override fun onBindViewHolder(holder: RegionViewHolder, position: Int) {
-        holder.onBind(getItem(position))
+        holder.onBind(getItem(position)) as Region
     }
 
     inner class RegionViewHolder(private val binding: ItemSelectionRegionBinding) :
@@ -35,8 +35,8 @@ class CinemaRegionSelectionListAdapter(private val viewmodel: CinemaSelectionVie
 
         fun onBind(data: Region) {
             with(binding) {
-                tvItemRegion.text = data.name
-                tvItemRegionCount.text = "(${data.count})"
+                tvItemRegion.text = data.regionName
+                tvItemRegionCount.text = "(${data.theaterCount})"
                 clItemRegion.setOnClickListener {
                     isItemSelected = !isItemSelected
                     selectedItemPosition = absoluteAdapterPosition

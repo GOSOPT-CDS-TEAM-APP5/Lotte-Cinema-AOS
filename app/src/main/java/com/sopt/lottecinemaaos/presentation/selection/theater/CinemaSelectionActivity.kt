@@ -3,13 +3,15 @@ package com.sopt.lottecinemaaos.presentation.selection.theater
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
+import androidx.fragment.app.viewModels
 import com.sopt.lottecinemaaos.R
 import com.sopt.lottecinemaaos.databinding.ActivityCinemaSelectionBinding
+import com.sopt.lottecinemaaos.util.ViewModelFactory
 import com.sopt.lottecinemaaos.util.base.BindingActivity
 
 class CinemaSelectionActivity :
     BindingActivity<ActivityCinemaSelectionBinding>(R.layout.activity_cinema_selection) {
-    private val viewModel by viewModels<CinemaSelectionViewModel>()
+    private val viewModel: CinemaSelectionViewModel by viewModels { ViewModelFactory(this) }
     private lateinit var cinemaAdapter: CinemaSelectionListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,13 +30,17 @@ class CinemaSelectionActivity :
         cinemaAdapter: CinemaSelectionListAdapter,
         chipAdapter: CinemaSelectionChipAdapter
     ) {
-        regionAdapter.submitList(viewModel.regionList)
-        cinemaAdapter.submitList(viewModel.cinemaList)
-        chipAdapter.submitList(viewModel.cinemaList)
-        with(binding) {
-            rcvSelectionRegion.adapter = regionAdapter
-            rcvSelectionCinema.adapter = cinemaAdapter
-            rcvSelectionChip.adapter = chipAdapter
+        viewModel.regionData.observe(this) {
+            binding.rcvSelectionRegion.adapter = regionAdapter
+            regionAdapter.submitList(it)
+        }
+        viewModel.theaterData.observe(this) {
+            with(binding) {
+                rcvSelectionCinema.adapter = cinemaAdapter
+                rcvSelectionChip.adapter = chipAdapter
+            }
+            cinemaAdapter.submitList(it)
+            chipAdapter.submitList(it)
         }
     }
 
