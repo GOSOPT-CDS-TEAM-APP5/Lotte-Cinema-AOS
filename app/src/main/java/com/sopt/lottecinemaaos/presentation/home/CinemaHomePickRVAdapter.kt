@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sopt.lottecinemaaos.R
 import com.sopt.lottecinemaaos.databinding.ItemHomeMovieFeedBinding
-import HomeLottePick
+import com.sopt.lottecinemaaos.data.entity.HomeLottePick
 
 class CinemaHomePickRVAdapter(context: Context) :
     RecyclerView.Adapter<CinemaHomePickRVAdapter.CinemaHomePickViewHolder>() {
