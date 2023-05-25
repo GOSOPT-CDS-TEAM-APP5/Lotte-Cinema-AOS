@@ -2,20 +2,18 @@ package com.sopt.lottecinemaaos.presentation.home
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.sopt.lottecinemaaos.R
+import com.sopt.lottecinemaaos.data.model.response.ResponseHomeMovieChartDto
 import com.sopt.lottecinemaaos.databinding.ItemHomeMovieChartAdBinding
 import com.sopt.lottecinemaaos.databinding.ItemHomeMovieChartBinding
-import com.sopt.lottecinemaaos.domain.model.MovieChart
 
 class CinemaHomeMovieChartRVAdapter(context: Context) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val inflater by lazy { LayoutInflater.from(context) }
-    private val itemList: List<MovieChart> = listOf(
-        MovieChart(1, "가디언즈 오브 갤...", 9.6, true, null, null),
-        MovieChart(1, "분노의 질주:라이...", 9.6, true, null, null),
-        MovieChart(2, null, null, null, null, null)
-    )
+    private var itemList: ArrayList<ResponseHomeMovieChartDto> = arrayListOf()
 
     companion object {
         const val MOVIE_VIEW_TYPE = 1
@@ -24,9 +22,21 @@ class CinemaHomeMovieChartRVAdapter(context: Context) :
 
     class MovieViewHolder(private val binding: ItemHomeMovieChartBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(itemList: MovieChart) {
+        fun bind(itemList: ResponseHomeMovieChartDto) {
             with(binding) {
-                tvMovieTitle.text = itemList.title
+                tvMovieTitle.text =
+                    if (itemList.movieName.length >= 7) itemList.movieName.substring(0..6) + ".."
+                    else itemList.movieName
+                tvReservationRate.text = itemList.reservationRatio.toString()
+                if (itemList.release) {
+                    layoutStar.visibility = View.VISIBLE
+                    layoutDay.visibility = View.GONE
+                    tvGrade.text = itemList.scoreOfStar.toString()
+                } else {
+                    layoutDay.visibility = View.VISIBLE
+                    layoutStar.visibility = View.GONE
+                    tvDayNum.text = itemList.releaseDate.toString()
+                }
             }
         }
     }
@@ -38,25 +48,32 @@ class CinemaHomeMovieChartRVAdapter(context: Context) :
     override fun getItemCount(): Int = itemList.size
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (itemList[position].viewType == MOVIE_VIEW_TYPE) {
+
+        if(position!=0 && position%2==0){
+            holder as AdViewHolder
+        }
+        else{
             holder as MovieViewHolder
             holder.bind(itemList[position])
-        } else {
-            holder as AdViewHolder
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if (viewType == MOVIE_VIEW_TYPE) {
-            val binding = ItemHomeMovieChartBinding.inflate(inflater, parent, false)
-            MovieViewHolder(binding)
-        } else {
+        return if (viewType == AD_VIEW_TYPE) {
             val binding = ItemHomeMovieChartAdBinding.inflate(inflater, parent, false)
             AdViewHolder(binding)
+        } else {
+            val binding = ItemHomeMovieChartBinding.inflate(inflater, parent, false)
+            MovieViewHolder(binding)
         }
     }
 
     override fun getItemViewType(position: Int): Int {
-        return itemList[position].viewType
+        return if (position!=0 && position % 2 == 0) AD_VIEW_TYPE
+        else MOVIE_VIEW_TYPE
+    }
+
+    fun setItemList(itemList: ArrayList<ResponseHomeMovieChartDto>) {
+        this.itemList = itemList
     }
 }

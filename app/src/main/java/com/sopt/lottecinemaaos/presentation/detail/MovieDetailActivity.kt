@@ -9,7 +9,7 @@ import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sopt.lottecinemaaos.R
 import com.sopt.lottecinemaaos.databinding.ActivityMovieDetailBinding
-import com.sopt.lottecinemaaos.presentation.main.MainActivity
+import com.sopt.lottecinemaaos.presentation.selection.main.MainActivity
 import com.sopt.lottecinemaaos.util.base.BindingActivity
 
 class MovieDetailActivity : BindingActivity<ActivityMovieDetailBinding>(R.layout.activity_movie_detail) {
