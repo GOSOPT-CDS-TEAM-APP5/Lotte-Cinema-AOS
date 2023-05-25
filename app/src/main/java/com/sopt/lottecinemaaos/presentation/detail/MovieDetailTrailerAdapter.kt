@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sopt.lottecinemaaos.databinding.ItemDetailTrailerBinding
-import com.sopt.lottecinemaaos.domain.model.Trailer
+import com.sopt.lottecinemaaos.data.entity.Trailer
 
 class MovieDetailTrailerAdapter(context: Context) :RecyclerView.Adapter<MovieDetailTrailerAdapter.DetailTrailerViewHolder>() {
     private val inflater by lazy { LayoutInflater.from(context) }
