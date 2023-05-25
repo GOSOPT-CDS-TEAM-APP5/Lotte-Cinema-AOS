@@ -36,7 +36,7 @@ class CinemaRegionSelectionListAdapter(private val viewmodel: CinemaSelectionVie
         fun onBind(data: Region) {
             with(binding) {
                 tvItemRegion.text = data.regionName
-                tvItemRegionCount.text = "(${data.regionCount})"
+                tvItemRegionCount.text = "(${data.theaterCount})"
                 clItemRegion.setOnClickListener {
                     isItemSelected = !isItemSelected
                     selectedItemPosition = absoluteAdapterPosition

@@ -1,11 +1,12 @@
 package com.sopt.lottecinemaaos.presentation.selection.theater
+
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.sopt.lottecinemaaos.data.entity.Cinema
+import com.sopt.lottecinemaaos.data.entity.Theater
 import com.sopt.lottecinemaaos.databinding.ItemSelectionChipBinding
 import com.sopt.lottecinemaaos.presentation.selection.theater.CinemaSelectionChipAdapter.CinemaChipViewHolder
 import com.sopt.lottecinemaaos.util.ItemDiffCallback
@@ -13,8 +14,8 @@ import com.sopt.lottecinemaaos.util.ItemDiffCallback
 class CinemaSelectionChipAdapter(
     private val selectedCinemaItemList: List<Int>
 ) :
-    ListAdapter<Cinema, CinemaChipViewHolder>(
-        ItemDiffCallback<Cinema>(
+    ListAdapter<Theater, CinemaChipViewHolder>(
+        ItemDiffCallback<Theater>(
             onContentsTheSame = { old, new -> old == new },
             onItemsTheSame = { old, new -> old == new }
         )
@@ -24,7 +25,7 @@ class CinemaSelectionChipAdapter(
         private val binding: ItemSelectionChipBinding
     ) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: Cinema) {
+        fun onBind(data: Theater) {
             binding.tvSelectionChip.text = "테스트"
             Log.d("현재", selectedCinemaItemList.toString())
             if (selectedCinemaItemList.isNotEmpty()) {
@@ -32,7 +33,6 @@ class CinemaSelectionChipAdapter(
             } else {
                 binding.tvSelectionChip.visibility = View.GONE
             }
-
         }
     }
 

@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.sopt.lottecinemaaos.data.entity.Cinema
 import com.sopt.lottecinemaaos.data.entity.Region
+import com.sopt.lottecinemaaos.data.entity.Theater
 
 class CinemaSelectionViewModel : ViewModel() {
     private val _isRegionItemSelected = MutableLiveData<Boolean>()
@@ -58,27 +58,27 @@ class CinemaSelectionViewModel : ViewModel() {
 
         )
 
-    val cinemaList: List<Cinema> =
+    val cinemaList: List<Theater> =
         listOf(
-            Cinema(1, "1"),
-            Cinema(2, "2"),
-            Cinema(3, "3"),
-            Cinema(4, "4"),
-            Cinema(5, "5"),
-            Cinema(6, "6"),
-            Cinema(7, "7"),
-            Cinema(8, "8"),
-            Cinema(9, "9"),
-            Cinema(10, "10"),
-            Cinema(11, "11"),
-            Cinema(12, "12"),
-            Cinema(13, "13"),
-            Cinema(14, "14"),
-            Cinema(15, "15"),
-            Cinema(16, "16"),
-            Cinema(17, "17"),
-            Cinema(18, "18"),
-            Cinema(19, "19")
+            Theater(1, "1"),
+            Theater(2, "2"),
+            Theater(3, "3"),
+            Theater(4, "4"),
+            Theater(5, "5"),
+            Theater(6, "6"),
+            Theater(7, "7"),
+            Theater(8, "8"),
+            Theater(9, "9"),
+            Theater(10, "10"),
+            Theater(11, "11"),
+            Theater(12, "12"),
+            Theater(13, "13"),
+            Theater(14, "14"),
+            Theater(15, "15"),
+            Theater(16, "16"),
+            Theater(17, "17"),
+            Theater(18, "18"),
+            Theater(19, "19")
 
         )
 
