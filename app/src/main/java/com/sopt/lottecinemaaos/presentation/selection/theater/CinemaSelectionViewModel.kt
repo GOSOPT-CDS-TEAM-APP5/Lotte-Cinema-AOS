@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.sopt.lottecinemaaos.data.entity.Region
-import com.sopt.lottecinemaaos.data.entity.Theater
+import com.sopt.lottecinemaaos.domain.model.Region
+import com.sopt.lottecinemaaos.domain.model.Theater
 
 class CinemaSelectionViewModel : ViewModel() {
     private val _isRegionItemSelected = MutableLiveData<Boolean>()

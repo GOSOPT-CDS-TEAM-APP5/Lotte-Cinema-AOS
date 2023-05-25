@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.sopt.lottecinemaaos.data.entity.Region
 import com.sopt.lottecinemaaos.databinding.ItemSelectionRegionBinding
+import com.sopt.lottecinemaaos.domain.model.Region
 import com.sopt.lottecinemaaos.util.ItemDiffCallback
 
 class CinemaRegionSelectionListAdapter(private val viewmodel: CinemaSelectionViewModel) :
@@ -35,8 +35,8 @@ class CinemaRegionSelectionListAdapter(private val viewmodel: CinemaSelectionVie
 
         fun onBind(data: Region) {
             with(binding) {
-                tvItemRegion.text = data.regionName
-                tvItemRegionCount.text = "(${data.theaterCount})"
+                tvItemRegion.text = data.name
+                tvItemRegionCount.text = "(${data.count})"
                 clItemRegion.setOnClickListener {
                     isItemSelected = !isItemSelected
                     selectedItemPosition = absoluteAdapterPosition

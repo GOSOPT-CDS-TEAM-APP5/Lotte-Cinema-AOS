@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.sopt.lottecinemaaos.data.entity.Theater
 import com.sopt.lottecinemaaos.databinding.ItemSelectionChipBinding
+import com.sopt.lottecinemaaos.domain.model.Theater
 import com.sopt.lottecinemaaos.util.ItemDiffCallback
 
 class MovieTimeSelectionChipAdapter :
@@ -21,7 +21,7 @@ class MovieTimeSelectionChipAdapter :
     ) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: Theater) {
-            binding.tvSelectionChip.text = data.theaterName
+            binding.tvSelectionChip.text = data.name
 //            Log.d("현재", selectedCinemaItemList.toString())
 //            if (selectedCinemaItemList.isNotEmpty()) {
 //                binding.tvSelectionChip.visibility = View.VISIBLE

@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.sopt.lottecinemaaos.data.entity.Theater
 import com.sopt.lottecinemaaos.databinding.ItemSelectionCinemaBinding
+import com.sopt.lottecinemaaos.domain.model.Theater
 import com.sopt.lottecinemaaos.util.ItemDiffCallback
 
 class CinemaSelectionListAdapter(
@@ -41,7 +41,7 @@ class CinemaSelectionListAdapter(
 
         fun onBind(data: Theater, position: Int) {
             with(binding) {
-                tvItemCinema.text = data.theaterName
+                tvItemCinema.text = data.name
                 clItemCinema.setOnClickListener {
                     isItemSelected = !isItemSelected
                     selectedItemPosition = bindingAdapterPosition

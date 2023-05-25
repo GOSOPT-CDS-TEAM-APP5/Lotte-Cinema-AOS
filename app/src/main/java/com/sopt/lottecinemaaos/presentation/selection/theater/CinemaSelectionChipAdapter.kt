@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.sopt.lottecinemaaos.data.entity.Theater
 import com.sopt.lottecinemaaos.databinding.ItemSelectionChipBinding
+import com.sopt.lottecinemaaos.domain.model.Theater
 import com.sopt.lottecinemaaos.presentation.selection.theater.CinemaSelectionChipAdapter.CinemaChipViewHolder
 import com.sopt.lottecinemaaos.util.ItemDiffCallback
 

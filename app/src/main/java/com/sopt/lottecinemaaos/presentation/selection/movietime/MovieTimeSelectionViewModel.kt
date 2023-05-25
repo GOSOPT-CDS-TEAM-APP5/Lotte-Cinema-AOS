@@ -2,8 +2,8 @@ package com.sopt.lottecinemaaos.presentation.selection.movietime
 
 import androidx.lifecycle.ViewModel
 import com.sopt.lottecinemaaos.data.entity.Calendar
-import com.sopt.lottecinemaaos.data.entity.Theater
 import com.sopt.lottecinemaaos.data.entity.TimeTable
+import com.sopt.lottecinemaaos.domain.model.Theater
 
 class MovieTimeSelectionViewModel : ViewModel() {
     val cinemaList: List<Theater> =

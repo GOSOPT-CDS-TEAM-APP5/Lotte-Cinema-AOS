@@ -1,6 +1,6 @@
 package com.sopt.lottecinemaaos.data.model.response
 
-import com.sopt.lottecinemaaos.data.entity.Theater
+import com.sopt.lottecinemaaos.domain.model.Theater
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -12,4 +12,19 @@ data class ResponseTheaterDto(
     val message: String,
     @SerialName("data")
     val data: List<Theater>
-)
+) {
+    @Serializable
+    data class Theater(
+        @SerialName("theater_id")
+        val theaterId: Int,
+        @SerialName("theater_name")
+        val theaterName: String
+    )
+
+    fun toTheater() = data.map { theater ->
+        Theater(
+            id = theater.theaterId,
+            name = theater.theaterName
+        )
+    }
+}
