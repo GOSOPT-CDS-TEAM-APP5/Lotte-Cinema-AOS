@@ -1,8 +1,15 @@
 package com.sopt.lottecinemaaos.data.entity
 
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Region(
-    val id: Int,
+    @SerialName("region_id")
+    val regionId: Int,
+    @SerialName("region_name")
     val regionName: String,
-    val regionCount: Int
+    @SerialName("theater_count")
+    val theaterCount: Int
 
 )
