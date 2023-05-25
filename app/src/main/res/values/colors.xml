@@ -23,12 +23,14 @@
 
     <!-- gray color -->
     <color name="white">#FFFFFFFF</color>
+    <color name="gray_white">#FFFFFF</color>
     <color name="g_50">#F2F2F2</color>
     <color name="g_100">#EBEBEB</color>
     <color name="g_200">#BEBEBE</color>
     <color name="g_400">#666666</color>
     <color name="g_600">#414141</color>
     <color name="black">#000000</color>
+
 
 
 

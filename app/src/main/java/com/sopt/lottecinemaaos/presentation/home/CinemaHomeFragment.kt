@@ -40,7 +40,7 @@ class CinemaHomeFragment :
                     )
                 )
             }
-            wormDotsIndicator.attachTo(layoutTopViewpager)
+
         }
     }
 
