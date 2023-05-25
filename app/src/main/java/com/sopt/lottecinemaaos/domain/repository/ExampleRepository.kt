@@ -1,4 +1,4 @@
-package com.sopt.lottecinemaaos.data.repository
+package com.sopt.lottecinemaaos.domain.repository
 
 import com.sopt.lottecinemaaos.data.model.request.ExampleRequestDto
 import com.sopt.lottecinemaaos.data.model.response.ExampleResponseDto

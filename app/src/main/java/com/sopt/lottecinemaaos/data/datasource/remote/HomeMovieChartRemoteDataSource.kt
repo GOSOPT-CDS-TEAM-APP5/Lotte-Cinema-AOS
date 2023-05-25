@@ -1,9 +1,8 @@
 package com.sopt.lottecinemaaos.data.datasource.remote
 
-import android.util.Log
 import com.sopt.lottecinemaaos.data.model.ServicePool.retrofitService
 import com.sopt.lottecinemaaos.data.model.response.ResponseHomeMovieChartDto
-import com.sopt.lottecinemaaos.data.repository.HomeMovieChartRepository
+import com.sopt.lottecinemaaos.domain.repository.HomeMovieChartRepository
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

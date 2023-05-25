@@ -1,6 +1,5 @@
-package com.sopt.lottecinemaaos.data.repository
+package com.sopt.lottecinemaaos.domain.repository
 
-import com.sopt.lottecinemaaos.data.datasource.remote.HomeMovieChartRemoteDataSource
 import com.sopt.lottecinemaaos.data.model.response.ResponseHomeMovieChartDto
 
 interface HomeMovieChartRepository {
