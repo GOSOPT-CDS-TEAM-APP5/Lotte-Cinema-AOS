@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.sopt.lottecinemaaos.data.model.ServicePool.retrofitService
 import com.sopt.lottecinemaaos.data.model.response.ResponseHomeMovieChartDto
+import com.sopt.lottecinemaaos.domain.repository.HomeMovieChartRepositoryImpl
 import com.sopt.lottecinemaaos.data.repository.HomeMovieChartRepository
 import retrofit2.Call
 import retrofit2.Callback
@@ -17,17 +18,21 @@ class CinemaHomeViewModel : ViewModel() {
     val movieChartData: LiveData<ArrayList<ResponseHomeMovieChartDto>>
         get() = _movieChartData
 
-    fun getMovieChart(){
-        HomeMovieChartRepository.getMovieChart(object : HomeMovieChartRepository.GetDataCallback<ArrayList<ResponseHomeMovieChartDto>>{
-            override fun onSuccess(data: ArrayList<ResponseHomeMovieChartDto>?) {
-               data?.let{
-                   _movieChartData.value=it
-               }
-            }
-
-            override fun onFailure(throwable: Throwable) {
-                throwable.printStackTrace()
-            }
-        })
+    private val repository by lazy {
+        HomeMovieChartRepositoryImpl()
     }
-}
+
+    fun getMovieChart(){
+        repository.getMovieChart(object : HomeMovieChartRepository.GetDataCallback<ArrayList<ResponseHomeMovieChartDto>>{
+                override fun onSuccess(data: ArrayList<ResponseHomeMovieChartDto>?) {
+                    data?.let{
+                        _movieChartData.value=it
+                    }
+                }
+
+                override fun onFailure(throwable: Throwable) {
+                    throwable.printStackTrace()
+                }
+            })
+        }
+    }

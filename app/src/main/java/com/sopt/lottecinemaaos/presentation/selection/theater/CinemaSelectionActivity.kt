@@ -17,7 +17,8 @@ class CinemaSelectionActivity :
         binding.vm = viewModel
         val regionAdapter = CinemaRegionSelectionListAdapter(viewModel)
         cinemaAdapter = CinemaSelectionListAdapter(::clickCinemaItem, ::unclickCinemaItem)
-        val chipAdapter = CinemaSelectionChipAdapter()
+        val chipAdapter = CinemaSelectionChipAdapter(viewModel.testList)
+
         initAdapter(regionAdapter, cinemaAdapter, chipAdapter)
         observeRegionItemSelected()
     }
@@ -29,9 +30,13 @@ class CinemaSelectionActivity :
     ) {
         regionAdapter.submitList(viewModel.regionList)
         cinemaAdapter.submitList(viewModel.cinemaList)
-        binding.rcvSelectionRegion.adapter = regionAdapter
-        binding.rcvSelectionCinema.adapter = cinemaAdapter
-        binding.rcvSelectionChip.adapter = chipAdapter
+        chipAdapter.submitList(viewModel.cinemaList)
+        with(binding) {
+            rcvSelectionRegion.adapter = regionAdapter
+            rcvSelectionCinema.adapter = cinemaAdapter
+            rcvSelectionChip.adapter = chipAdapter
+        }
+
     }
 
     private fun observeRegionItemSelected() {
