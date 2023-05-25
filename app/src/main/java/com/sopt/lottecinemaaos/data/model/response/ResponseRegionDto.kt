@@ -15,11 +15,11 @@ data class ResponseRegionDto(
 ) {
     @Serializable
     data class RegionData(
-        @SerialName("region_id")
+        @SerialName("regionId")
         val regionId: Int,
-        @SerialName("region_name")
+        @SerialName("regionName")
         val regionName: String,
-        @SerialName("theater_count")
+        @SerialName("theaterCount")
         val theaterCount: Int
     )
 

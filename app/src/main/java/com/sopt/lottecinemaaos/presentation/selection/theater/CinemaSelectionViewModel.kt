@@ -29,29 +29,6 @@ class CinemaSelectionViewModel(private val movieSelectionRepositoryImpl: MovieSe
     val selectedCinemaItemList: LiveData<List<Int>>
         get() = _selectedCinemaItemList
 
-    fun addCinemaItemSelected(itemPosition: Int) {
-        val currentList = _selectedCinemaItemList.value.orEmpty().toMutableList()
-        if (!currentList.contains(itemPosition + 1)) {
-            currentList.add(itemPosition + 1)
-            _isCinemaItemSelected.value = true
-            _selectedCinemaItemList.value = currentList.toList()
-            Log.d("흠", currentList.toString())
-        }
-    }
-
-    fun removeCinemaItemSelected(itemPosition: Int) {
-        val currentList = _selectedCinemaItemList.value.orEmpty().toMutableList()
-        if (currentList.contains(itemPosition + 1)) {
-            currentList.remove(itemPosition + 1)
-            _isCinemaItemSelected.value = true
-            _selectedCinemaItemList.value = currentList.toList()
-            Log.d("흠2", currentList.toString())
-        }
-        if (currentList.isEmpty()) {
-            _isCinemaItemSelected.value = false
-        }
-    }
-
     private var _regionData: MutableLiveData<List<Region>> = MutableLiveData()
     val regionData: LiveData<List<Region>>
         get() = _regionData
@@ -82,29 +59,28 @@ class CinemaSelectionViewModel(private val movieSelectionRepositoryImpl: MovieSe
         }
     }
 
-//    val cinemaList: List<Theater> =
-//        listOf(
-//            Theater(1, "1"),
-//            Theater(2, "2"),
-//            Theater(3, "3"),
-//            Theater(4, "4"),
-//            Theater(5, "5"),
-//            Theater(6, "6"),
-//            Theater(7, "7"),
-//            Theater(8, "8"),
-//            Theater(9, "9"),
-//            Theater(10, "10"),
-//            Theater(11, "11"),
-//            Theater(12, "12"),
-//            Theater(13, "13"),
-//            Theater(14, "14"),
-//            Theater(15, "15"),
-//            Theater(16, "16"),
-//            Theater(17, "17"),
-//            Theater(18, "18"),
-//            Theater(19, "19")
-//
-//        )
+    fun addCinemaItemSelected(itemPosition: Int) {
+        val currentList = _selectedCinemaItemList.value.orEmpty().toMutableList()
+        if (!currentList.contains(itemPosition + 1)) {
+            currentList.add(itemPosition + 1)
+            _isCinemaItemSelected.value = true
+            _selectedCinemaItemList.value = currentList.toList()
+            Log.d("흠", currentList.toString())
+        }
+    }
+
+    fun removeCinemaItemSelected(itemPosition: Int) {
+        val currentList = _selectedCinemaItemList.value.orEmpty().toMutableList()
+        if (currentList.contains(itemPosition + 1)) {
+            currentList.remove(itemPosition + 1)
+            _isCinemaItemSelected.value = true
+            _selectedCinemaItemList.value = currentList.toList()
+            Log.d("흠2", currentList.toString())
+        }
+        if (currentList.isEmpty()) {
+            _isCinemaItemSelected.value = false
+        }
+    }
 
     val testList: List<Int> =
         listOf(1, 2)
@@ -112,27 +88,4 @@ class CinemaSelectionViewModel(private val movieSelectionRepositoryImpl: MovieSe
     fun updateRegionItemSelected(isSelected: Boolean) {
         _isRegionItemSelected.value = isSelected
     }
-
-    /*
-    private fun signUp() {
-        val requestSignUpDto = RequestSignUpDto(
-            id = id.value.toString(),
-            password = pwd.value.toString(),
-            name = name.value.toString(),
-            skill = skill.value.toString()
-        )
-        viewModelScope.launch {
-            runCatching {
-                authRepository.signUp(
-                    requestSignUpDto
-                )
-            }.onSuccess {
-                _isSignUpSuccess.value = true
-            }.onFailure {
-                _isSignUpSuccess.value = false
-                _errorMessage.value = it.message
-            }
-        }
-    }
-     */
 }

@@ -15,9 +15,9 @@ data class ResponseTheaterDto(
 ) {
     @Serializable
     data class Theater(
-        @SerialName("theater_id")
+        @SerialName("theaterId")
         val theaterId: Int,
-        @SerialName("theater_name")
+        @SerialName("theaterName")
         val theaterName: String
     )
 

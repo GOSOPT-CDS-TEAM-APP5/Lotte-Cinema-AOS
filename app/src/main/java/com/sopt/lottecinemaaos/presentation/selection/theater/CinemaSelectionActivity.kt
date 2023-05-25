@@ -1,11 +1,13 @@
 package com.sopt.lottecinemaaos.presentation.selection.theater
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
 import com.sopt.lottecinemaaos.R
 import com.sopt.lottecinemaaos.databinding.ActivityCinemaSelectionBinding
+import com.sopt.lottecinemaaos.presentation.selection.movietime.MovieTimeSelectionActivity
 import com.sopt.lottecinemaaos.util.ViewModelFactory
 import com.sopt.lottecinemaaos.util.base.BindingActivity
 
@@ -20,9 +22,9 @@ class CinemaSelectionActivity :
         val regionAdapter = CinemaRegionSelectionListAdapter(viewModel)
         cinemaAdapter = CinemaSelectionListAdapter(::clickCinemaItem, ::unclickCinemaItem)
         val chipAdapter = CinemaSelectionChipAdapter(viewModel.testList)
-
         initAdapter(regionAdapter, cinemaAdapter, chipAdapter)
         observeRegionItemSelected()
+        clickSelectedButton()
     }
 
     private fun initAdapter(
@@ -59,4 +61,12 @@ class CinemaSelectionActivity :
 
     private fun unclickCinemaItem(itemPosition: Int) =
         viewModel.removeCinemaItemSelected(itemPosition)
+
+    private fun clickSelectedButton() {
+        binding.btnSelectionComplete.setOnClickListener {
+            Intent(this, MovieTimeSelectionActivity::class.java).apply {
+                startActivity(this)
+            }
+        }
+    }
 }
