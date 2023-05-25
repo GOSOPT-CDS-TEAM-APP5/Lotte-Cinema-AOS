@@ -2,8 +2,8 @@ package com.sopt.lottecinemaaos.presentation.detail
 
 import androidx.lifecycle.ViewModel
 import com.sopt.lottecinemaaos.R
-import com.sopt.lottecinemaaos.domain.model.Poster
-import com.sopt.lottecinemaaos.domain.model.Trailer
+import com.sopt.lottecinemaaos.data.entity.Poster
+import com.sopt.lottecinemaaos.data.entity.Trailer
 
 class MovieDetailViewModel : ViewModel() {
     val trailerList = listOf<Trailer>(
