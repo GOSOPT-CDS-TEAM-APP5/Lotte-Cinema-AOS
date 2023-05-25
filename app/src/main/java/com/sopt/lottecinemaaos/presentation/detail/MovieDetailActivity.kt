@@ -40,7 +40,6 @@ class MovieDetailActivity : BindingActivity<ActivityMovieDetailBinding>(R.layout
 
         with (binding) {
             rcvDetailTrailer.adapter = trailerAdapter
-            rcvDetailTrailer.layoutManager = LinearLayoutManager(this@MovieDetailActivity, LinearLayoutManager.HORIZONTAL, false)
         }
     }
 
@@ -50,7 +49,6 @@ class MovieDetailActivity : BindingActivity<ActivityMovieDetailBinding>(R.layout
 
         with (binding) {
             rcvDetailPoster.adapter = posterAdapter
-            rcvDetailPoster.layoutManager = LinearLayoutManager(this@MovieDetailActivity, LinearLayoutManager.HORIZONTAL, false)
         }
     }
 
