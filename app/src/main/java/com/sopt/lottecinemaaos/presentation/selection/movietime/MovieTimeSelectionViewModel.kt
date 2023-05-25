@@ -2,10 +2,12 @@ package com.sopt.lottecinemaaos.presentation.selection.movietime
 
 import androidx.lifecycle.ViewModel
 import com.sopt.lottecinemaaos.data.entity.Calendar
+import com.sopt.lottecinemaaos.data.repository.MovieSelectionRepositoryImpl
 import com.sopt.lottecinemaaos.domain.model.Theater
 import com.sopt.lottecinemaaos.domain.model.TimeTable
 
-class MovieTimeSelectionViewModel : ViewModel() {
+class MovieTimeSelectionViewModel(private val movieSelectionRepositoryImpl: MovieSelectionRepositoryImpl) :
+    ViewModel() {
     val cinemaList: List<Theater> =
         listOf(
             Theater(1, "홍대입구"),
@@ -24,7 +26,9 @@ class MovieTimeSelectionViewModel : ViewModel() {
             Calendar(5, 11, "목"),
             Calendar(6, 12, "금"),
             Calendar(7, 13, "토"),
-            Calendar(8, 14, "일")
+            Calendar(8, 14, "일"),
+            Calendar(9, 15, "월"),
+            Calendar(10, 16, "화")
 
         )
 
