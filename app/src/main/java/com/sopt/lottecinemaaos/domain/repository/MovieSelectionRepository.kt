@@ -11,5 +11,5 @@ interface MovieSelectionRepository {
         date: String,
         movieId: Int,
         theaterId: Int
-    ): Result<List<ResponseScheduleDto.Cinema.MultiplexList.ScheduleList>>
+    ): Result<List<ResponseScheduleDto.Cinema>>
 }

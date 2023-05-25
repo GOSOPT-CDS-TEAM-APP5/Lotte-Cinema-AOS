@@ -1,13 +1,27 @@
 package com.sopt.lottecinemaaos.presentation.selection.movietime
 
+import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.sopt.lottecinemaaos.data.entity.Calendar
+import com.sopt.lottecinemaaos.data.model.response.ResponseScheduleDto
 import com.sopt.lottecinemaaos.data.repository.MovieSelectionRepositoryImpl
 import com.sopt.lottecinemaaos.domain.model.Theater
-import com.sopt.lottecinemaaos.domain.model.TimeTable
+import kotlinx.coroutines.launch
 
 class MovieTimeSelectionViewModel(private val movieSelectionRepositoryImpl: MovieSelectionRepositoryImpl) :
     ViewModel() {
+    init {
+        getFirstTimeTableData()
+    }
+
+    private var _timeTableData: MutableLiveData<List<ResponseScheduleDto.Cinema>> =
+        MutableLiveData()
+    val timeTableData: LiveData<List<ResponseScheduleDto.Cinema>>
+        get() = _timeTableData
+
     val cinemaList: List<Theater> =
         listOf(
             Theater(1, "홍대입구"),
@@ -32,16 +46,17 @@ class MovieTimeSelectionViewModel(private val movieSelectionRepositoryImpl: Movi
 
         )
 
-    val timeList: List<TimeTable> =
-        listOf(
-            TimeTable("13:00", "14:00", "130", "150"),
-            TimeTable("12:00", "15:00", "134", "150"),
-            TimeTable("15:00", "20:00", "112", "150"),
-            TimeTable("13:00", "14:00", "130", "150"),
-            TimeTable("12:00", "15:00", "134", "150"),
-            TimeTable("15:00", "20:00", "112", "150"),
-            TimeTable("13:00", "14:00", "130", "150"),
-            TimeTable("12:00", "15:00", "134", "150"),
-            TimeTable("15:00", "20:00", "112", "150")
-        )
+    // 현재 더미데이터에 있는 movieId(가오갤)은 1이며, 영화관 ID값 홍대입구는 13, 브로드웨이는 9, 서울대입구는 10입니다!)
+    private fun getFirstTimeTableData() {
+        viewModelScope.launch {
+            movieSelectionRepositoryImpl.getMovieSchedule("2023-05-08", 1, 13)
+                .onSuccess { response ->
+                    Log.d("timeSelection", "getTimeTableData 성공")
+                    _timeTableData.value = response
+                    Log.d("timeSelection", _timeTableData.value.toString())
+                }.onFailure { error ->
+                    Log.d("timeSelection", "getTimeTableData 실패: ${error.message}")
+                }
+        }
+    }
 }

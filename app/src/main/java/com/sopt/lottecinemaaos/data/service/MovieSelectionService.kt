@@ -15,7 +15,7 @@ interface MovieSelectionService {
         @Query("regionId") id: Int
     ): ResponseTheaterDto
 
-    @GET("/0/schedule")
+    @GET("/schedule")
     suspend fun getScheduleList(
         @Query("date") date: String,
         @Query("movieId") movieId: Int,

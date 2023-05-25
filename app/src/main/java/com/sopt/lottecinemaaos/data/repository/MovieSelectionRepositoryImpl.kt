@@ -31,13 +31,13 @@ class MovieSelectionRepositoryImpl(private val selectionDataSource: MovieSelecti
         date: String,
         movieId: Int,
         theaterId: Int
-    ): Result<List<ResponseScheduleDto.Cinema.MultiplexList.ScheduleList>> =
+    ): Result<List<ResponseScheduleDto.Cinema>> =
         runCatching {
             selectionDataSource.getMovieSchedule(
                 date,
                 movieId,
                 theaterId
-            ).data[2].multiplexList[0].scheduleList
+            ).data
         }.onSuccess {
             Log.d("schedule", "schedule get 성공")
         }.onFailure {

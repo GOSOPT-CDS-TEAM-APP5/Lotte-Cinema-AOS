@@ -31,11 +31,23 @@ class MovieTimeSelectionActivity :
     ) {
         chipAdapter.submitList(viewModel.cinemaList)
         calendarAdapter.submitList(viewModel.dateList)
-        timeTableAdapter.submitList(viewModel.timeList)
+        viewModel.timeTableData.observe(this) {
+            binding.rcvMovietimeTimetable.adapter = timeTableAdapter
+            timeTableAdapter.submitList(it)
+        }
+        /*
+        viewModel.theaterData.observe(this) {
+            with(binding) {
+                rcvSelectionCinema.adapter = cinemaAdapter
+                rcvSelectionChip.adapter = chipAdapter
+            }
+            cinemaAdapter.submitList(it)
+            chipAdapter.submitList(it)
+        }
+         */
         with(binding) {
             rcvMovietimeChip.adapter = chipAdapter
             rcvMovietimeCalendar.adapter = calendarAdapter
-            rcvMovietimeTimetable.adapter = timeTableAdapter
         }
     }
 }
