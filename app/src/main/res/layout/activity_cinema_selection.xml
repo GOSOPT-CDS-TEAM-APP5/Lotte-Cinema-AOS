@@ -76,7 +76,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginVertical="12dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="78dp"
+                android:layout_marginEnd="105dp"
                 android:visibility="@{vm.isCinemaItemSelected ? View.VISIBLE : View.GONE}"
                 app:layout_constraintBottom_toBottomOf="@id/cl_selection_banner"
                 app:layout_constraintEnd_toEndOf="@id/cl_selection_banner"
@@ -89,6 +89,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="@+id/cl_selection_selected_cinema"
                     app:layout_constraintBottom_toBottomOf="@id/cl_selection_selected_cinema"
                     app:layout_constraintStart_toStartOf="@id/cl_selection_selected_cinema"
                     app:layout_constraintTop_toTopOf="@id/cl_selection_selected_cinema"
@@ -171,12 +172,14 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_selection_complete"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="128dp"
             android:enabled="@{vm.isCinemaItemSelected}"
             android:background="@{vm.isCinemaItemSelected ? @drawable/bg_select_btn_gradient : @drawable/sel_selection_button}"
             android:text="@string/btn_selection_complete"
             android:textAppearance="@style/SubHead"
             android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 

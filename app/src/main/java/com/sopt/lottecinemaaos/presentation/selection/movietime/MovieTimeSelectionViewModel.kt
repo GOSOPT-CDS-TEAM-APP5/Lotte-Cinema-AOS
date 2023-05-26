@@ -24,10 +24,7 @@ class MovieTimeSelectionViewModel(private val movieSelectionRepositoryImpl: Movi
 
     val cinemaList: List<Theater> =
         listOf(
-            Theater(1, "홍대입구"),
-            Theater(2, "브로드웨이(신사)"),
-            Theater(3, "서울대입구"),
-            Theater(4, "경기")
+            Theater(1, "홍대입구")
 
         )
 
