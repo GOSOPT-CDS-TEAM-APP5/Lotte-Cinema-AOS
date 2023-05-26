@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
 import com.sopt.lottecinemaaos.R
 import com.sopt.lottecinemaaos.databinding.ActivityCinemaSelectionBinding
+import com.sopt.lottecinemaaos.presentation.detail.MovieDetailActivity
 import com.sopt.lottecinemaaos.presentation.selection.movietime.MovieTimeSelectionActivity
 import com.sopt.lottecinemaaos.util.ViewModelFactory
 import com.sopt.lottecinemaaos.util.base.BindingActivity
@@ -25,6 +26,7 @@ class CinemaSelectionActivity :
         initAdapter(regionAdapter, cinemaAdapter)
         observeRegionItemSelected()
         clickSelectedButton()
+        clickBackButton()
     }
 
     private fun initAdapter(
@@ -69,6 +71,14 @@ class CinemaSelectionActivity :
     private fun clickSelectedButton() {
         binding.btnSelectionComplete.setOnClickListener {
             Intent(this, MovieTimeSelectionActivity::class.java).apply {
+                startActivity(this)
+            }
+        }
+    }
+
+    private fun clickBackButton() {
+        binding.btnSelectionBack.setOnClickListener {
+            Intent(this, MovieDetailActivity::class.java).apply {
                 startActivity(this)
             }
         }

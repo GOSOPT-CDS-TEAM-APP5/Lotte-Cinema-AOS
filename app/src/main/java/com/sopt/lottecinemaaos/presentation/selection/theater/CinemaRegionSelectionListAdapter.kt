@@ -26,7 +26,7 @@ class CinemaRegionSelectionListAdapter(private val viewmodel: CinemaSelectionVie
     }
 
     override fun onBindViewHolder(holder: RegionViewHolder, position: Int) {
-        holder.onBind(getItem(position)) as Region
+        holder.onBind(getItem(position))
     }
 
     inner class RegionViewHolder(private val binding: ItemSelectionRegionBinding) :
