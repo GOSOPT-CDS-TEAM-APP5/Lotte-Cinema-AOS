@@ -31,22 +31,22 @@ class MovieDetailViewModel : ViewModel() {
 
     val posterList = listOf<Poster>(
         Poster(
-            src = R.drawable.img_poster1
+            src = R.drawable.resize_poster1
         ),
         Poster(
-            src = R.drawable.img_stillcut1
+            src = R.drawable.resize_stillcut1
         ),
         Poster(
-            src = R.drawable.img_stillcut2
+            src = R.drawable.resize_stillcut2
         ),
         Poster(
-            src = R.drawable.img_stillcut3
+            src = R.drawable.resize_stillcut3
         ),
         Poster(
-            src = R.drawable.img_stillcut4
+            src = R.drawable.resize_stillcut4
         ),
         Poster(
-            src = R.drawable.img_stillcut5
+            src = R.drawable.resize_stillcut5
         ),
     )
 }
