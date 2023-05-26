@@ -5,16 +5,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.sopt.lottecinemaaos.data.entity.Cinema
 import com.sopt.lottecinemaaos.databinding.ItemSelectionCinemaBinding
+import com.sopt.lottecinemaaos.domain.model.Theater
 import com.sopt.lottecinemaaos.util.ItemDiffCallback
 
 class CinemaSelectionListAdapter(
     private val selectItem: (Int) -> Unit,
     private val unselectItem: (Int) -> Unit
 ) :
-    ListAdapter<Cinema, CinemaSelectionListAdapter.CinemaViewHolder>(
-        ItemDiffCallback<Cinema>(
+    ListAdapter<Theater, CinemaSelectionListAdapter.CinemaViewHolder>(
+        ItemDiffCallback<Theater>(
             onContentsTheSame = { old, new -> old == new },
             onItemsTheSame = { old, new -> old == new }
         )
@@ -39,7 +39,7 @@ class CinemaSelectionListAdapter(
         RecyclerView.ViewHolder(binding.root) {
         private var isItemSelected = false
 
-        fun onBind(data: Cinema, position: Int) {
+        fun onBind(data: Theater, position: Int) {
             with(binding) {
                 tvItemCinema.text = data.name
                 clItemCinema.setOnClickListener {

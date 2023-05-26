@@ -1,4 +1,4 @@
-package com.sopt.lottecinemaaos.data.entity
+package com.sopt.lottecinemaaos.domain.model
 
 data class HomeLottePick(
     val title: String,

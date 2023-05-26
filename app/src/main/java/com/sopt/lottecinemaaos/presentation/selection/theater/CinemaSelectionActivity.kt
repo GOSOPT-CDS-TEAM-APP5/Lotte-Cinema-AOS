@@ -1,15 +1,20 @@
 package com.sopt.lottecinemaaos.presentation.selection.theater
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
+import androidx.fragment.app.viewModels
 import com.sopt.lottecinemaaos.R
 import com.sopt.lottecinemaaos.databinding.ActivityCinemaSelectionBinding
+import com.sopt.lottecinemaaos.presentation.selection.movietime.MovieTimeSelectionActivity
+import com.sopt.lottecinemaaos.util.ViewModelFactory
 import com.sopt.lottecinemaaos.util.base.BindingActivity
 
 class CinemaSelectionActivity :
     BindingActivity<ActivityCinemaSelectionBinding>(R.layout.activity_cinema_selection) {
-    private val viewModel by viewModels<CinemaSelectionViewModel>()
+    private val viewModel: CinemaSelectionViewModel by viewModels { ViewModelFactory(this) }
     private lateinit var cinemaAdapter: CinemaSelectionListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,26 +22,32 @@ class CinemaSelectionActivity :
         binding.vm = viewModel
         val regionAdapter = CinemaRegionSelectionListAdapter(viewModel)
         cinemaAdapter = CinemaSelectionListAdapter(::clickCinemaItem, ::unclickCinemaItem)
-        val chipAdapter = CinemaSelectionChipAdapter(viewModel.testList)
-
-        initAdapter(regionAdapter, cinemaAdapter, chipAdapter)
+        initAdapter(regionAdapter, cinemaAdapter)
         observeRegionItemSelected()
+        clickSelectedButton()
     }
 
     private fun initAdapter(
         regionAdapter: CinemaRegionSelectionListAdapter,
-        cinemaAdapter: CinemaSelectionListAdapter,
-        chipAdapter: CinemaSelectionChipAdapter
+        cinemaAdapter: CinemaSelectionListAdapter
     ) {
-        regionAdapter.submitList(viewModel.regionList)
-        cinemaAdapter.submitList(viewModel.cinemaList)
-        chipAdapter.submitList(viewModel.cinemaList)
-        with(binding) {
-            rcvSelectionRegion.adapter = regionAdapter
-            rcvSelectionCinema.adapter = cinemaAdapter
-            rcvSelectionChip.adapter = chipAdapter
+        viewModel.regionData.observe(this) {
+            binding.rcvSelectionRegion.adapter = regionAdapter
+            regionAdapter.submitList(it)
         }
-
+        viewModel.theaterData.observe(this) {
+            binding.rcvSelectionCinema.adapter = cinemaAdapter
+            cinemaAdapter.submitList(it)
+        }
+        viewModel.selectedCinemaItemList.observe(this) { selectedCinemaList ->
+            val chipAdapter = CinemaSelectionChipAdapter(
+                viewModel.selectedCinemaItemList.value.orEmpty(),
+                viewModel.theaterData.value.orEmpty()
+            )
+            chipAdapter.submitList(selectedCinemaList)
+            binding.rcvSelectionChip.adapter = chipAdapter
+            Log.d("cinema", selectedCinemaList.toString())
+        }
     }
 
     private fun observeRegionItemSelected() {
@@ -54,4 +65,12 @@ class CinemaSelectionActivity :
 
     private fun unclickCinemaItem(itemPosition: Int) =
         viewModel.removeCinemaItemSelected(itemPosition)
+
+    private fun clickSelectedButton() {
+        binding.btnSelectionComplete.setOnClickListener {
+            Intent(this, MovieTimeSelectionActivity::class.java).apply {
+                startActivity(this)
+            }
+        }
+    }
 }

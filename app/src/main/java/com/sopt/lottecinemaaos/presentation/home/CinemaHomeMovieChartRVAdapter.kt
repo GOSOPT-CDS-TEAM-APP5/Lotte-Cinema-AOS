@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.sopt.lottecinemaaos.R
 import com.sopt.lottecinemaaos.data.model.response.ResponseHomeMovieChartDto
 import com.sopt.lottecinemaaos.databinding.ItemHomeMovieChartAdBinding
 import com.sopt.lottecinemaaos.databinding.ItemHomeMovieChartBinding
@@ -42,17 +41,14 @@ class CinemaHomeMovieChartRVAdapter(context: Context) :
     }
 
     class AdViewHolder(private val binding: ItemHomeMovieChartAdBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-    }
+        RecyclerView.ViewHolder(binding.root)
 
     override fun getItemCount(): Int = itemList.size
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-
-        if(position!=0 && position%2==0){
+        if (position != 0 && position % 2 == 0) {
             holder as AdViewHolder
-        }
-        else{
+        } else {
             holder as MovieViewHolder
             holder.bind(itemList[position])
         }
@@ -69,7 +65,7 @@ class CinemaHomeMovieChartRVAdapter(context: Context) :
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (position!=0 && position % 2 == 0) AD_VIEW_TYPE
+        return if (position != 0 && position % 2 == 0) AD_VIEW_TYPE
         else MOVIE_VIEW_TYPE
     }
 

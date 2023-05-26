@@ -4,13 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.sopt.lottecinemaaos.data.entity.Cinema
 import com.sopt.lottecinemaaos.databinding.ItemSelectionChipBinding
+import com.sopt.lottecinemaaos.domain.model.Theater
 import com.sopt.lottecinemaaos.util.ItemDiffCallback
 
 class MovieTimeSelectionChipAdapter :
-    ListAdapter<Cinema, MovieTimeSelectionChipAdapter.MovieTimeCinemaChipViewHolder>(
-        ItemDiffCallback<Cinema>(
+    ListAdapter<Theater, MovieTimeSelectionChipAdapter.MovieTimeCinemaChipViewHolder>(
+        ItemDiffCallback<Theater>(
             onContentsTheSame = { old, new -> old == new },
             onItemsTheSame = { old, new -> old == new }
         )
@@ -20,7 +20,7 @@ class MovieTimeSelectionChipAdapter :
         private val binding: ItemSelectionChipBinding
     ) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: Cinema) {
+        fun onBind(data: Theater) {
             binding.tvSelectionChip.text = data.name
 //            Log.d("현재", selectedCinemaItemList.toString())
 //            if (selectedCinemaItemList.isNotEmpty()) {

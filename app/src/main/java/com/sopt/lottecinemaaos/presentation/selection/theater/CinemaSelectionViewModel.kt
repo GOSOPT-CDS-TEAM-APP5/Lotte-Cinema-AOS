@@ -4,10 +4,19 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.sopt.lottecinemaaos.data.entity.Cinema
-import com.sopt.lottecinemaaos.data.entity.Region
+import androidx.lifecycle.viewModelScope
+import com.sopt.lottecinemaaos.data.repository.MovieSelectionRepositoryImpl
+import com.sopt.lottecinemaaos.domain.model.Region
+import com.sopt.lottecinemaaos.domain.model.Theater
+import kotlinx.coroutines.launch
 
-class CinemaSelectionViewModel : ViewModel() {
+class CinemaSelectionViewModel(private val movieSelectionRepositoryImpl: MovieSelectionRepositoryImpl) :
+    ViewModel() {
+    init {
+        getRegionData()
+        getTheaterData()
+    }
+
     private val _isRegionItemSelected = MutableLiveData<Boolean>()
     val isRegionItemSelected: LiveData<Boolean>
         get() = _isRegionItemSelected
@@ -16,71 +25,62 @@ class CinemaSelectionViewModel : ViewModel() {
     val isCinemaItemSelected: LiveData<Boolean>
         get() = _isCinemaItemSelected
 
-    private val _selectedCinemaItemList = MutableLiveData<List<Int>>(emptyList())
+    private var _selectedCinemaItemList = MutableLiveData<List<Int>>(emptyList())
     val selectedCinemaItemList: LiveData<List<Int>>
         get() = _selectedCinemaItemList
 
+    val currentList = _selectedCinemaItemList.value.orEmpty().toMutableList()
+
+    private var _regionData: MutableLiveData<List<Region>> = MutableLiveData()
+    val regionData: LiveData<List<Region>>
+        get() = _regionData
+
+    private var _theaterData: MutableLiveData<List<Theater>> = MutableLiveData()
+    val theaterData: LiveData<List<Theater>>
+        get() = _theaterData
+
+    private fun getRegionData() {
+        viewModelScope.launch {
+            movieSelectionRepositoryImpl.getRegionList().onSuccess { response ->
+                Log.d("cinemaSelection", "getRegionData 성공")
+                _regionData.value = response
+            }.onFailure { error ->
+                Log.d("cinemaSelection", "getRegionData 실패: ${error.message}")
+            }
+        }
+    }
+
+    private fun getTheaterData() {
+        viewModelScope.launch {
+            movieSelectionRepositoryImpl.getTheaterList(1).onSuccess { response ->
+                Log.d("cinemaSelection", "getTheaterData 성공")
+                _theaterData.value = response
+            }.onFailure { error ->
+                Log.d("cinemaSelection", "getTheaterData 실패: ${error.message}")
+            }
+        }
+    }
+
     fun addCinemaItemSelected(itemPosition: Int) {
-        val currentList = _selectedCinemaItemList.value.orEmpty().toMutableList()
         if (!currentList.contains(itemPosition + 1)) {
             currentList.add(itemPosition + 1)
             _isCinemaItemSelected.value = true
             _selectedCinemaItemList.value = currentList.toList()
-            Log.d("흠", currentList.toString())
+//            Log.d("흠", _selectedCinemaItemList.value.toString())
         }
     }
 
     fun removeCinemaItemSelected(itemPosition: Int) {
-        val currentList = _selectedCinemaItemList.value.orEmpty().toMutableList()
         if (currentList.contains(itemPosition + 1)) {
             currentList.remove(itemPosition + 1)
             _isCinemaItemSelected.value = true
             _selectedCinemaItemList.value = currentList.toList()
-            Log.d("흠2", currentList.toString())
+//            Log.d("흠2", _selectedCinemaItemList.value.toString())
         }
         if (currentList.isEmpty()) {
             _isCinemaItemSelected.value = false
         }
     }
-
-    val regionList: List<Region> =
-        listOf(
-            Region(1, "MY 영화관", 0),
-            Region(2, "가까운 영화관", 1),
-            Region(3, "서울", 2),
-            Region(4, "경기", 3),
-            Region(5, "인천", 4),
-            Region(6, "충청", 5),
-            Region(7, "전라", 6),
-            Region(8, "경북", 7),
-            Region(9, "대구", 8),
-            Region(10, "경남", 9)
-
-        )
-
-    val cinemaList: List<Cinema> =
-        listOf(
-            Cinema(1, "1"),
-            Cinema(2, "2"),
-            Cinema(3, "3"),
-            Cinema(4, "4"),
-            Cinema(5, "5"),
-            Cinema(6, "6"),
-            Cinema(7, "7"),
-            Cinema(8, "8"),
-            Cinema(9, "9"),
-            Cinema(10, "10"),
-            Cinema(11, "11"),
-            Cinema(12, "12"),
-            Cinema(13, "13"),
-            Cinema(14, "14"),
-            Cinema(15, "15"),
-            Cinema(16, "16"),
-            Cinema(17, "17"),
-            Cinema(18, "18"),
-            Cinema(19, "19")
-
-        )
 
     val testList: List<Int> =
         listOf(1, 2)
