@@ -1,4 +1,4 @@
-package com.sopt.lottecinemaaos.presentation.main
+package com.sopt.lottecinemaaos.presentation.selection.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

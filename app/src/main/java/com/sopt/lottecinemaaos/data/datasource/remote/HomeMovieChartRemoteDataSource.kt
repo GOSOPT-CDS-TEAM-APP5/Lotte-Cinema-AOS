@@ -9,7 +9,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 object HomeMovieChartRemoteDataSource {
-
     fun getMovieChart(callback: HomeMovieChartRepository.GetDataCallback<ArrayList<ResponseHomeMovieChartDto>>) {
         retrofitService.getMovieChart().enqueue(object :
             Callback<ArrayList<ResponseHomeMovieChartDto>> {

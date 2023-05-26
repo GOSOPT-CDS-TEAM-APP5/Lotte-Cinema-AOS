@@ -10,9 +10,10 @@ import com.sopt.lottecinemaaos.data.model.response.ResponseHomeMovieChartDto
 import com.sopt.lottecinemaaos.databinding.FragmentCinemaHomeBinding
 import com.sopt.lottecinemaaos.util.base.BindingFragment
 
+
 class CinemaHomeFragment :
     BindingFragment<FragmentCinemaHomeBinding>(R.layout.fragment_cinema_home) {
-    private val viewModel by viewModels<CinemaHomeViewModel>()
+    private val viewModel by viewModels <CinemaHomeViewModel>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getMovieChartData()
@@ -22,13 +23,12 @@ class CinemaHomeFragment :
         setEventBtn()
     }
 
-    private fun getMovieChartData() {
+    private fun getMovieChartData(){
         viewModel.getMovieChart()
-        viewModel.movieChartData.observe(requireActivity()) {
+        viewModel.movieChartData.observe(requireActivity()){
             setMovieChartRV(it)
         }
     }
-
     private fun setViewPager() {
         with(binding) {
             layoutTopViewpager.adapter = CinemaHomeVPAdapter().apply {
@@ -40,6 +40,7 @@ class CinemaHomeFragment :
                     )
                 )
             }
+
         }
     }
 
@@ -47,9 +48,9 @@ class CinemaHomeFragment :
         changeChildFragment(CinemaHomeEventSubFragment())
     }
 
-    private fun setMovieChartRV(data: ArrayList<ResponseHomeMovieChartDto>) {
+    private fun setMovieChartRV(data : ArrayList<ResponseHomeMovieChartDto>) {
         with(binding) {
-            rvMovieChart.adapter = CinemaHomeMovieChartRVAdapter(requireContext()).apply {
+            rvMovieChart.adapter = CinemaHomeMovieChartRVAdapter(requireContext()).apply{
                 this.setItemList(data)
             }
             rvMovieChart.layoutManager =
@@ -79,7 +80,7 @@ class CinemaHomeFragment :
         }
     }
 
-    private fun changeChildFragment(fragment: Fragment) {
+    private fun changeChildFragment(fragment: Fragment){
         childFragmentManager.beginTransaction()
             .replace(R.id.fc_child_fragment, fragment)
             .commit()

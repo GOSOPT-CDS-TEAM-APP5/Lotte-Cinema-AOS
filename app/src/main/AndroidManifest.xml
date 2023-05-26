@@ -17,9 +17,8 @@
         <activity
             android:name=".presentation.selection.movietime.MovieTimeSelectionActivity"
             android:exported="false" >
-
         </activity>
-        <activity
+       <activity
             android:name=".presentation.selection.theater.CinemaSelectionActivity"
             android:exported="true">
             <intent-filter>
@@ -27,21 +26,15 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-        </activity>
-            android:exported="false" />
+        </activity> 
         <activity
             android:name=".presentation.detail.MovieDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.detail.MovieDetailActivity"
-            android:exported="false" />
+            android:exported="false" />   
         <activity
             android:name=".presentation.selection.main.MainActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
-
-
+        
     </application>
 
 </manifest>

@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface LotteCinemaHomeService {
     @GET("/main")
-    fun getMovieChart(): Call<ArrayList<ResponseHomeMovieChartDto>>
+    fun getMovieChart() : Call<ArrayList<ResponseHomeMovieChartDto>>
 }
