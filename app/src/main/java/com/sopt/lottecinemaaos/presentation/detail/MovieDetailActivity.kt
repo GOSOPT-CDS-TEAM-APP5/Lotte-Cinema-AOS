@@ -34,7 +34,7 @@ class MovieDetailActivity :
     }
 
     private fun setToolbar() {
-        binding.toolbar.setNavigationOnClickListener {
+        binding.btnDetailBack.setOnClickListener {
             Intent(this, MainActivity::class.java).apply { startActivity(this) }
         }
     }
