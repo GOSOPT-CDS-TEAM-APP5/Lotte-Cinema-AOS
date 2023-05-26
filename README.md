@@ -1,6 +1,9 @@
 # Lotte-Cinema-AOS
 중요한건 꺾이지 않는 안드 💪💚
 
+![img_culture_03](https://github.com/GOSOPT-CDS-TEAM-APP5/Lotte-Cinema-AOS/assets/62274335/1f4b9f41-38c7-4a72-925d-35636e6646f7)
+
+
 ### GitHub Convention
 https://www.notion.so/go-sopt/Github-Convention-02946c1111a5483c8646b6b70a140287?pvs=4
 
