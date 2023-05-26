@@ -43,6 +43,10 @@ class CinemaHomeMovieChartRVAdapter(context: Context) :
                     val intent = Intent(context, MovieDetailActivity::class.java)
                     intent.run { context.startActivity(this) }
                 }
+                btnMovieButton.setOnClickListener {
+                    val intent = Intent(context, MovieDetailActivity::class.java)
+                    intent.run { context.startActivity(this) }
+                }
             }
         }
     }
@@ -53,9 +57,6 @@ class CinemaHomeMovieChartRVAdapter(context: Context) :
     override fun getItemCount(): Int = itemList.size
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-//        holder.itemView.setOnClickListener {
-//            onClickListener?.onClick(position)
-//        }
         if (position != 0 && position % 2 == 0) {
             holder as AdViewHolder
         } else {
