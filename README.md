@@ -10,4 +10,5 @@ https://www.notion.so/go-sopt/Coding-Convention-6258f23214a8443fb45562b22ebfc376
 ### Package Convetion
 https://www.notion.so/go-sopt/Package-Convention-0cbb7104eba044a1b3faf0cb623254b5?pvs=4
 
-
+### 시연 영상
+https://www.notion.so/go-sopt/1d7d036a735b49ad8c8cb6796d6e577b?pvs=4
