@@ -1,9 +1,11 @@
 package com.sopt.lottecinemaaos.presentation.selection.movietime
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.sopt.lottecinemaaos.R
 import com.sopt.lottecinemaaos.databinding.ActivityMovieTimeSelectionBinding
+import com.sopt.lottecinemaaos.presentation.selection.theater.CinemaSelectionActivity
 import com.sopt.lottecinemaaos.util.ViewModelFactory
 import com.sopt.lottecinemaaos.util.base.BindingActivity
 
@@ -22,6 +24,7 @@ class MovieTimeSelectionActivity :
             cinemaCalendarAdapter,
             cinemaTimeTableAdapter
         )
+        clickChangeTheaterBtn()
     }
 
     private fun initAdapter(
@@ -48,6 +51,14 @@ class MovieTimeSelectionActivity :
         with(binding) {
             rcvMovietimeChip.adapter = chipAdapter
             rcvMovietimeCalendar.adapter = calendarAdapter
+        }
+    }
+
+    private fun clickChangeTheaterBtn() {
+        binding.clMovietimeChangeCinema.setOnClickListener {
+            Intent(this, CinemaSelectionActivity::class.java).apply {
+                startActivity(this)
+            }
         }
     }
 }
