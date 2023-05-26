@@ -3,6 +3,7 @@ package com.sopt.lottecinemaaos.data.model
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.sopt.lottecinemaaos.BuildConfig
 import com.sopt.lottecinemaaos.data.service.LotteCinemaHomeService
+import com.sopt.lottecinemaaos.data.service.MovieDetailService
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
@@ -18,4 +19,5 @@ object ApiFactory {
 }
 object ServicePool{
     val retrofitService = ApiFactory.create<LotteCinemaHomeService>()
+    val movieDetailService = ApiFactory.create<MovieDetailService>()
 }
