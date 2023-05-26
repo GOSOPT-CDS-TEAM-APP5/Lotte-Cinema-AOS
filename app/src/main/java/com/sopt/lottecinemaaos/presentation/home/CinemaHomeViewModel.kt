@@ -19,15 +19,15 @@ class CinemaHomeViewModel : ViewModel() {
 
     fun getMovieChart(){
         repository.getMovieChart(object : HomeMovieChartRepository.GetDataCallback<ArrayList<ResponseHomeMovieChartDto>>{
-                override fun onSuccess(data: ArrayList<ResponseHomeMovieChartDto>?) {
-                    data?.let{
-                        _movieChartData.value=it
-                    }
+            override fun onSuccess(data: ArrayList<ResponseHomeMovieChartDto>?) {
+                data?.let{
+                    _movieChartData.value=it
                 }
+            }
 
-                override fun onFailure(throwable: Throwable) {
-                    throwable.printStackTrace()
-                }
-            })
-        }
+            override fun onFailure(throwable: Throwable) {
+                throwable.printStackTrace()
+            }
+        })
     }
+}
