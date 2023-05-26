@@ -34,14 +34,9 @@ class MovieDetailActivity :
     }
 
     private fun setToolbar() {
-        binding.toolbar.setNavigationIcon(R.drawable.drawable_resize)
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
         binding.toolbar.setNavigationOnClickListener {
             Intent(this, MainActivity::class.java).apply { startActivity(this) }
         }
-        binding.toolbar.title = "가디언즈 오브 갤럭시.."
     }
 
     private fun setInformation() {

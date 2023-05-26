@@ -25,6 +25,7 @@ class MovieTimeSelectionActivity :
             cinemaTimeTableAdapter
         )
         clickChangeTheaterBtn()
+        clickBackBtn()
     }
 
     private fun initAdapter(
@@ -38,16 +39,6 @@ class MovieTimeSelectionActivity :
             binding.rcvMovietimeTimetable.adapter = timeTableAdapter
             timeTableAdapter.submitList(it)
         }
-        /*
-        viewModel.theaterData.observe(this) {
-            with(binding) {
-                rcvSelectionCinema.adapter = cinemaAdapter
-                rcvSelectionChip.adapter = chipAdapter
-            }
-            cinemaAdapter.submitList(it)
-            chipAdapter.submitList(it)
-        }
-         */
         with(binding) {
             rcvMovietimeChip.adapter = chipAdapter
             rcvMovietimeCalendar.adapter = calendarAdapter
@@ -56,6 +47,14 @@ class MovieTimeSelectionActivity :
 
     private fun clickChangeTheaterBtn() {
         binding.clMovietimeChangeCinema.setOnClickListener {
+            Intent(this, CinemaSelectionActivity::class.java).apply {
+                startActivity(this)
+            }
+        }
+    }
+
+    private fun clickBackBtn() {
+        binding.btnSelectionMovietimeBack.setOnClickListener {
             Intent(this, CinemaSelectionActivity::class.java).apply {
                 startActivity(this)
             }
