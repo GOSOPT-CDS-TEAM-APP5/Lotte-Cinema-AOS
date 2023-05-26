@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sopt.lottecinemaaos.databinding.ItemDetailPosterBinding
-import com.sopt.lottecinemaaos.domain.model.Poster
+import com.sopt.lottecinemaaos.data.entity.Poster
 
 class MovieDetailPosterAdapter(context: Context) :RecyclerView.Adapter<MovieDetailPosterAdapter.DetailPosterViewHolder>() {
 
