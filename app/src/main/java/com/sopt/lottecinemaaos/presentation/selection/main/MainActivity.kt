@@ -1,7 +1,6 @@
 package com.sopt.lottecinemaaos.presentation.selection.main
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.sopt.lottecinemaaos.R
 import com.sopt.lottecinemaaos.databinding.ActivityMainBinding
 import com.sopt.lottecinemaaos.util.base.BindingActivity

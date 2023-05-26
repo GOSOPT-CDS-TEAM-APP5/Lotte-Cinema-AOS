@@ -1,11 +1,14 @@
 package com.sopt.lottecinemaaos.presentation.detail
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.sopt.lottecinemaaos.R
 import com.sopt.lottecinemaaos.databinding.ActivityMovieDetailBinding
+import com.sopt.lottecinemaaos.presentation.selection.main.MainActivity
+import com.sopt.lottecinemaaos.presentation.selection.theater.CinemaSelectionActivity
 import com.sopt.lottecinemaaos.util.base.BindingActivity
 
 class MovieDetailActivity :
@@ -18,19 +21,27 @@ class MovieDetailActivity :
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_movie_detail)
 
+        setToolbar()
+
+        viewinformation = ViewModelProvider(this).get(MovieInformationViewModel::class.java)
+        viewinformation.getMovieDetail()
+        setInformation()
+
+        setTrailer()
+        setPoster()
+
+        clickFabButton()
+    }
+
+    private fun setToolbar() {
         binding.toolbar.setNavigationIcon(R.drawable.drawable_resize)
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-        binding.toolbar.setNavigationOnClickListener { finish() }
+        binding.toolbar.setNavigationOnClickListener {
+            Intent(this, MainActivity::class.java).apply { startActivity(this) }
+        }
         binding.toolbar.title = "가디언즈 오브 갤럭시.."
-
-        viewinformation = ViewModelProvider(this).get(MovieInformationViewModel::class.java)
-        viewinformation.getMovieDetail()
-        setInformation() //
-
-        setTrailer()
-        setPoster()
     }
 
     private fun setInformation() {
@@ -59,6 +70,12 @@ class MovieDetailActivity :
 
         with(binding) {
             rcvDetailPoster.adapter = posterAdapter
+        }
+    }
+
+    private fun clickFabButton() {
+        binding.clFab.setOnClickListener {
+            Intent(this, CinemaSelectionActivity::class.java).apply { startActivity(this) }
         }
     }
 }

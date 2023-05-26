@@ -1,6 +1,7 @@
 package com.sopt.lottecinemaaos.presentation.home
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sopt.lottecinemaaos.data.model.response.ResponseHomeMovieChartDto
 import com.sopt.lottecinemaaos.databinding.ItemHomeMovieChartAdBinding
 import com.sopt.lottecinemaaos.databinding.ItemHomeMovieChartBinding
+import com.sopt.lottecinemaaos.presentation.detail.MovieDetailActivity
 
 class CinemaHomeMovieChartRVAdapter(context: Context) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -21,6 +23,7 @@ class CinemaHomeMovieChartRVAdapter(context: Context) :
 
     class MovieViewHolder(private val binding: ItemHomeMovieChartBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        private val context = binding.root.context
         fun bind(itemList: ResponseHomeMovieChartDto) {
             with(binding) {
                 tvMovieTitle.text =
@@ -36,6 +39,10 @@ class CinemaHomeMovieChartRVAdapter(context: Context) :
                     layoutStar.visibility = View.GONE
                     tvDayNum.text = itemList.releaseDate.toString()
                 }
+                ivMovieImage.setOnClickListener {
+                    val intent = Intent(context, MovieDetailActivity::class.java)
+                    intent.run { context.startActivity(this) }
+                }
             }
         }
     }
@@ -46,6 +53,9 @@ class CinemaHomeMovieChartRVAdapter(context: Context) :
     override fun getItemCount(): Int = itemList.size
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+//        holder.itemView.setOnClickListener {
+//            onClickListener?.onClick(position)
+//        }
         if (position != 0 && position % 2 == 0) {
             holder as AdViewHolder
         } else {
