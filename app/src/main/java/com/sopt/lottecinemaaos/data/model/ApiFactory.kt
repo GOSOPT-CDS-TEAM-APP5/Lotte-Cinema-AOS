@@ -33,6 +33,6 @@ object ApiFactory {
 
 object ServicePool {
     val retrofitService = ApiFactory.create<LotteCinemaHomeService>()
-    val movieDetailService = ApiFactory.create<MovieDetailService>()
     val selectionService = ApiFactory.create<MovieSelectionService>()
+    val movieDetailService = ApiFactory.create<MovieDetailService>()
 }
